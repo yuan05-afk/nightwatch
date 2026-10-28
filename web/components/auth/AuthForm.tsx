@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { authClient } from "@/lib/auth/client";
+import { safeNext } from "@/lib/safe-next";
 
 const DEMO_EMAIL = process.env.NEXT_PUBLIC_DEMO_EMAIL;
 const DEMO_PASSWORD = process.env.NEXT_PUBLIC_DEMO_PASSWORD;
 
 export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
-  const router = useRouter();
   const params = useSearchParams();
   const next = safeNext(params.get("redirectTo") ?? params.get("next"));
   const [pending, setPending] = useState(false);
@@ -24,8 +24,9 @@ export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
         setError(error.message ?? "That didn't work. Check your details and try again.");
         return;
       }
-      router.replace(next);
-      router.refresh();
+      // Full navigation, not router.replace: in production the client router may hold a prefetched
+      // "redirect to sign-in" for the target from before the session existed, and would replay it.
+      window.location.assign(next);
     } catch {
       setError("Couldn't reach the sign-in service. Check your connection and try again.");
     } finally {
@@ -108,9 +109,4 @@ function Field(props: { name: string; label: string; type?: string; autoComplete
       />
     </label>
   );
-}
-
-/** Only same-site paths; never redirect off-site after login. */
-function safeNext(value: string | null): string {
-  return value && value.startsWith("/") && !value.startsWith("//") ? value : "/console";
 }
