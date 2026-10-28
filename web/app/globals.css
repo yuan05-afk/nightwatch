@@ -258,6 +258,7 @@ body {
 /* ---------- Isometric stage (How it works) ---------- */
 .iso-stage {
   position: relative;
+  overflow: hidden; /* the rotated card's corners poke past the gutter at phone widths */
   height: 420px;
   display: grid;
   place-items: center;

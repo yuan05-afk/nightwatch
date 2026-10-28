@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Bot, Bug, Globe, KeyRound, Radar, ServerCrash } from "lucide-react";
 import type { ReactNode } from "react";
 
-type Orb = { label: string; icon: ReactNode; className: string; unknown?: boolean };
+type Orb = { label: string; icon: ReactNode; className: string; unknown?: boolean; wideOnly?: boolean };
 
 // Attack families the model knows, placed on the orbit lines; the gold orb is the one it doesn't.
 const ORBS: Orb[] = [
@@ -10,8 +10,8 @@ const ORBS: Orb[] = [
   { label: "Port scans", icon: <Radar size={18} strokeWidth={1.5} />, className: "left-[13%] top-[58%] [animation-delay:-5s]" },
   { label: "Brute force", icon: <KeyRound size={18} strokeWidth={1.5} />, className: "right-[9%] top-[20%] [animation-delay:-1s]" },
   { label: "Botnet traffic", icon: <Bot size={18} strokeWidth={1.5} />, className: "right-[6%] top-[52%] [animation-delay:-4s]" },
-  { label: "Web injection", icon: <Globe size={18} strokeWidth={1.5} />, className: "left-[27%] top-[12%] [animation-delay:-3s] hidden lg:grid" },
-  { label: "Infiltration", icon: <Bug size={18} strokeWidth={1.5} />, className: "right-[25%] top-[9%] [animation-delay:-6s] hidden lg:grid" },
+  { label: "Web injection", icon: <Globe size={18} strokeWidth={1.5} />, className: "left-[27%] top-[12%] [animation-delay:-3s]", wideOnly: true },
+  { label: "Infiltration", icon: <Bug size={18} strokeWidth={1.5} />, className: "right-[25%] top-[9%] [animation-delay:-6s]", wideOnly: true },
   { label: "Never seen before", icon: <span className="font-display text-[1.35rem] leading-none">?</span>, className: "right-[19%] top-[66%] [animation-delay:-2.5s]", unknown: true },
 ];
 
@@ -40,7 +40,7 @@ export function Hero() {
           title={o.label}
           aria-label={o.label}
           role="img"
-          className={`hero-orb absolute z-0 grid h-14 w-14 place-items-center rounded-full ${o.unknown ? "hero-orb-unknown text-unknown" : "text-ink-soft"} ${o.className}`}
+          className={`hero-orb absolute z-0 hidden h-14 w-14 ${o.wideOnly ? "lg:grid" : "sm:grid"} place-items-center rounded-full ${o.unknown ? "hero-orb-unknown text-unknown" : "text-ink-soft"} ${o.className}`}
         >
           {o.icon}
         </span>

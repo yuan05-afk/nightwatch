@@ -208,7 +208,7 @@ function Session({ sessionId, onExit }: { sessionId: string; onExit: () => void 
         <Stat label="Scan speed" value={s && s.flowsScored ? `${Math.round(s.scoringMicros / s.flowsScored)} µs` : "–"} hint="Per connection" />
       </dl>
 
-      <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_330px]">
+      <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_330px]">
         <div className="panel">
           <div className="panel-head flex flex-wrap items-center justify-between gap-3 px-4 py-3">
             <div>

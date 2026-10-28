@@ -11,7 +11,8 @@ const M = { l: 64, r: 24, t: 20, b: 52 };
 function logScale(min: number, max: number, a: number, b: number) {
   const lmin = Math.log10(min);
   const lmax = Math.log10(max);
-  return (v: number) => a + ((Math.log10(Math.max(v, min)) - lmin) / (lmax - lmin)) * (b - a);
+  // Rounded so Node and the browser emit identical SVG attributes (Math.log10 can differ in the last bit).
+  return (v: number) => Math.round((a + ((Math.log10(Math.max(v, min)) - lmin) / (lmax - lmin)) * (b - a)) * 100) / 100;
 }
 
 const pct = (v: number) => `${(v * 100).toFixed(v < 0.001 ? 3 : 2)}%`;
