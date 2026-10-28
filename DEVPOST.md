@@ -8,10 +8,10 @@ results, impact, team contributions) and acknowledges all third-party data and l
 
 ## General info
 
-**Project name** (45 of 60 characters)
+**Project name** (10 of 60 characters)
 
 ```
-NIGHTWATCH: Your Night-Shift Security Analyst
+NIGHTWATCH
 ```
 
 **Elevator pitch** (193 of 200 characters)
