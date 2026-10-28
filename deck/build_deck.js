@@ -169,7 +169,7 @@ section("Opening");
   text(s, "Your night-shift security analyst", { x: X0, y: 1.85, w: 6.2, h: 2.0, fontSize: 44, bold: true, fontFace: THEME.headFontFace });
   text(s, "Network intrusion detection that explains every alert in plain language, ranks what to fix first, and drafts the breach report the law requires within 72 hours. For hospitals, schools, local governments and small businesses with no security team.", { x: X0, y: 3.75, w: 5.9, h: 1.7, fontSize: 16, color: SOFT, lineSpacingMultiple: 1.15 });
   text(s, "DataNova 2026 Global Data-thon\nCybersecurity and Fraud Detection, DN-CY-01", { x: X0, y: 5.95, w: 6, h: 0.7, fontSize: 12, color: FAINT });
-  framedImage(s, "landing.png", 7.15, 1.45, 5.6, 3.5, "Nightwatch landing page");
+  framedImage(s, "prod-landing.jpg", 7.15, 1.45, 5.6, 3.5, "Nightwatch landing page");
   s.addNotes("Nightwatch is a night-shift security analyst for organizations that cannot afford one. In one sentence: it watches network traffic, tells you in plain language which attacks matter most, and drafts the breach notification the law requires within 72 hours.");
 }
 
@@ -245,7 +245,7 @@ section("Solution");
 {
   const s = slide();
   s.addText("The console: real attacks rise to the top", { placeholder: "title" });
-  framedImage(s, "console-session-top.png", X0, 1.5, 7.6, 4.75, "Nightwatch security console during a Friday replay");
+  framedImage(s, "prod-console.png", X0, 1.5, 7.6, 4.75, "Nightwatch security console during a Friday replay");
   const notes = [
     ["Live scoring", "Each connection is scored as it streams in. The replay is held-out traffic the model never trained on."],
     ["Severity first", "Botnet command-and-control traffic is Critical and sorts above everything else."],
@@ -263,10 +263,10 @@ section("Solution");
 {
   const s = slide();
   s.addText("From one click to a breach report draft", { placeholder: "title" });
-  framedImage(s, "investigate.png", X0, 1.5, 5.9, 3.69, "Investigation panel for a Critical botnet incident");
-  framedImage(s, "report.png", X0 + 6.2, 1.5, 5.9, 3.69, "Draft incident report with the 72-hour deadline");
+  framedImage(s, "prod-investigate.png", X0, 1.5, 5.9, 3.69, "Investigation panel for a Critical botnet incident");
+  framedImage(s, "prod-report.png", X0 + 6.2, 1.5, 5.9, 3.69, "Draft incident report with the 72-hour deadline");
   text(s, "Investigate", { x: X0, y: 5.4, w: 5.9, h: 0.4, fontSize: 18, bold: true, color: C.accent1 });
-  text(s, "What happened in plain words, MITRE ATT&CK T1071, the model's evidence with an innocent explanation beside each signal, and the first three response steps.", { x: X0, y: 5.82, w: 5.9, h: 0.8, fontSize: 14, color: SOFT });
+  text(s, "What happened in plain words, MITRE ATT&CK T1071, the model's evidence with an innocent explanation beside each signal, and the first response steps.", { x: X0, y: 5.82, w: 5.9, h: 0.8, fontSize: 14, color: SOFT });
   text(s, "Report", { x: X0 + 6.2, y: 5.4, w: 5.9, h: 0.4, fontSize: 18, bold: true, color: C.accent1 });
   text(s, "Confirmed incidents become a draft with the NPC's four required fields, a timeline, affected hosts and the deadline. Marked as a draft for the Data Protection Officer.", { x: X0 + 6.2, y: 5.82, w: 5.9, h: 0.8, fontSize: 14, color: SOFT });
   s.addNotes("Open an incident, read the plain-language explanation, confirm the threat, then click Create incident report. The deadline is counted from the first confirmed threat. Be clear that this is a draft for a human, not legal advice.");
@@ -483,15 +483,16 @@ section("Close");
   text(s, "Nightwatch", { x: X0, y: 1.6, w: 8, h: 0.5, fontSize: 18, bold: true, color: C.accent1 });
   text(s, "A security analyst for the organizations attackers count on being unwatched", { x: X0, y: 2.2, w: 6.3, h: 2.2, fontSize: 34, bold: true });
   const links = [
-    ["Try it", "Live demo link in the Devpost submission. Sign in with the judge demo account button."],
-    ["Method", "Every number in this deck is regenerated from the code in the repository."],
+    ["Try it", "nightwatch-olive.vercel.app\nPress “Use the judge demo account” to sign in."],
+    ["Code", "github.com/yuan05-afk/nightwatch\nEvery number in this deck is regenerated from it."],
   ];
   links.forEach(([h, b], i) => {
-    const x = X0 + i * 3.2;
-    text(s, h, { x, y: 4.7, w: 2.95, h: 0.4, fontSize: 16, bold: true });
-    text(s, b, { x, y: 5.15, w: 2.95, h: 1.1, fontSize: 14, color: SOFT });
+    const x = X0 + [0, 2.95][i];
+    const w = [2.75, 3.55][i];
+    text(s, h, { x, y: 4.7, w, h: 0.4, fontSize: 16, bold: true });
+    text(s, b, { x, y: 5.15, w, h: 1.1, fontSize: 14, color: SOFT });
   });
-  framedImage(s, "console-start.png", 7.35, 1.75, 5.35, 3.34, "Nightwatch console start screen");
+  framedImage(s, "prod-console.png", 7.35, 1.75, 5.35, 3.34, "Nightwatch security console");
   text(s, "Data: corrected CIC-IDS2017 (Liu et al., IEEE CNS 2022; Sharafaldin et al., 2018). Libraries: LightGBM, scikit-learn, imbalanced-learn, Next.js, Drizzle, Neon.", { x: X0, y: 6.45, w: CW, h: 0.5, fontSize: 10, color: FAINT });
   s.addNotes("End on the mission. Invite judges to try the console with the demo account.");
 }
