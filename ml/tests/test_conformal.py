@@ -45,3 +45,15 @@ def test_verdict_rules():
     anomaly = np.array([0.1, 0.1, 0.1, 0.1, 0.9])
     v, _ = verdicts(sets, proba, anomaly, anomaly_threshold=0.5)
     assert list(v) == [SUPPRESSED, KNOWN, UNKNOWN, UNKNOWN, UNKNOWN]
+
+
+def test_alpha_benign_tightens_benign_coverage_only():
+    rng = np.random.default_rng(3)
+    prior = [0.9, 0.07, 0.03]
+    y_cal, y_test = rng.choice(3, 40000, p=prior), rng.choice(3, 40000, p=prior)
+    p_cal, p_test = _probs(len(y_cal), 3, y_cal, 2.0, rng), _probs(len(y_test), 3, y_test, 2.0, rng)
+    loose = MondrianConformal.fit(p_cal, y_cal, alpha=0.1)
+    strict = MondrianConformal.fit(p_cal, y_cal, alpha=0.1, alpha_benign=0.005)
+    b = y_test == 0
+    assert coverage(strict.predict_sets(p_test)[b], y_test[b]) >= 0.99 > coverage(loose.predict_sets(p_test)[b], y_test[b])
+    assert np.allclose(strict.thresholds[1:], loose.thresholds[1:])

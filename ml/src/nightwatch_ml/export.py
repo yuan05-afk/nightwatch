@@ -142,5 +142,49 @@ def export() -> None:
     print(f"parity.json: {len(X)} flows")
 
 
+SCENARIOS = {
+    "wed-dos": ("Wed", "Wednesday: the DoS day"),
+    "thu-web": ("Thu", "Thursday: web attacks and an infiltration"),
+    "fri-botnet": ("Fri", "Friday afternoon: botnet, scans and a DDoS"),
+}
+ATTACK_CAP = 2500
+BENIGN_PER_SCENARIO = 20_000
+
+
+def replay() -> None:
+    """Held-out (test-split) flows only, so the Watchfloor never shows training data."""
+    import pandas as pd
+
+    df = data.load()
+    split = chronological_within_campaign(df)
+    te = df[(split == TEST).to_numpy()].copy()
+    rng = np.random.default_rng(5)
+    frames = []
+    for scen, (day, _) in SCENARIOS.items():
+        d = te[te["day"] == day]
+        parts = []
+        for lab, g in d.groupby("label", observed=True):
+            cap = BENIGN_PER_SCENARIO if lab == data.BENIGN else ATTACK_CAP
+            parts.append(g.iloc[np.sort(rng.choice(len(g), min(cap, len(g)), replace=False))])
+        s = pd.concat(parts).sort_values("ts", kind="stable")
+        s["scenario"] = scen
+        s["seq"] = np.arange(1, len(s) + 1)
+        frames.append(s)
+        print(f"{scen}: {len(s):,} flows, attacks {int((s['label'] != data.BENIGN).sum()):,}")
+    out = pd.concat(frames)
+    feats = data.feature_columns(df)
+    out["dst_port"] = out["f_dst_port"].astype("int32")
+    out["protocol"] = out["f_protocol"].astype("int32")
+    keep = ["scenario", "seq", "ts", "src_ip", "dst_ip", "src_port", "dst_port", "protocol", "label", "family"]
+    rows = out[keep].copy()
+    rows["features"] = list(out[feats].to_numpy(dtype=np.float32))
+    OUT.mkdir(parents=True, exist_ok=True)
+    rows.to_parquet(OUT / "replay.parquet", index=False)
+    (OUT / "scenarios.json").write_text(json.dumps({k: v[1] for k, v in SCENARIOS.items()}), encoding="utf-8")
+    print(f"replay.parquet: {len(rows):,} rows, {len(feats)} features each")
+
+
 if __name__ == "__main__":
-    export()
+    import sys
+
+    {"model": export, "replay": replay}.get(sys.argv[1] if len(sys.argv) > 1 else "model", export)()

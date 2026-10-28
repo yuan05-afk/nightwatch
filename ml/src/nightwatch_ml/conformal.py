@@ -40,7 +40,10 @@ class MondrianConformal:
         alpha: float = 0.05,
         benign_index: int = 0,
         min_n: int = 30,
+        alpha_benign: float | None = None,
     ) -> "MondrianConformal":
+        """alpha_benign: a stricter miscoverage for the benign class. Each benign flow left
+        out of its own set becomes an Unknown alert, so this sets the false-alert budget."""
         n_classes = proba_cal.shape[1]
         true_scores = 1.0 - proba_cal[np.arange(len(y_cal)), y_cal]
         attack = y_cal != benign_index
@@ -49,11 +52,12 @@ class MondrianConformal:
         fallback = []
         for k in range(n_classes):
             s = true_scores[y_cal == k]
+            a = alpha_benign if (k == benign_index and alpha_benign is not None) else alpha
             if len(s) >= min_n:
-                q[k] = conformal_quantile(s, alpha)
+                q[k] = conformal_quantile(s, a)
                 fallback.append(False)
             else:
-                q[k] = pooled_attack_q if k != benign_index else conformal_quantile(s, alpha)
+                q[k] = pooled_attack_q if k != benign_index else conformal_quantile(s, a)
                 fallback.append(True)
         q = np.minimum(q, 1.0)  # a threshold of 1 already admits every class
         return cls(alpha=alpha, thresholds=q, fallback_used=fallback)

@@ -1,0 +1,21 @@
+{
+  "strategy": "balanced",
+  "rows": [
+    {
+      "split": "random",
+      "accuracy": 0.9998976180725531,
+      "macro_f1": 0.8894935957789156,
+      "macro_f1_attacks": 0.8816047608903729,
+      "benign_fpr": 9.407072236907707e-05,
+      "attack_recall_any": 0.9999010753113654
+    },
+    {
+      "split": "chronological",
+      "accuracy": 0.9984118896370442,
+      "macro_f1": 0.8664059053062927,
+      "macro_f1_attacks": 0.8569067904753725,
+      "benign_fpr": 0.00016305591877306693,
+      "attack_recall_any": 0.9966860229307428
+    }
+  ]
+}

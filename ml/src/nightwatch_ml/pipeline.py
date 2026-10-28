@@ -23,6 +23,9 @@ from .train import STRATEGIES, class_order, fit
 REPORTS = data.ML_ROOT / "reports"
 BENIGN_TRAIN_CAP = 300_000
 ALPHA = 0.05
+# Policy, fixed before looking at test: benign flows may become Unknown at most ~0.2% of the time.
+ALPHA_BENIGN = 0.002
+ALPHA_BENIGN_SWEEP = (0.05, 0.02, 0.01, 0.005, 0.002, 0.001, 0.0005)
 ANOMALY_BENIGN_RATE = 0.002
 
 
@@ -73,17 +76,17 @@ def _doubt_pipeline(ctx: Ctx, split: pd.Series, strategy: str, classes: list[str
     det = fit(tr[ctx.feats], tr["label"], strategy=strategy, classes=classes)
     y_ca = _encode(ca["label"], classes)
     p_ca = det.proba(ca[ctx.feats])
-    cp = MondrianConformal.fit(p_ca, y_ca, alpha=ALPHA)
+    cp = MondrianConformal.fit(p_ca, y_ca, alpha=ALPHA, alpha_benign=ALPHA_BENIGN)
     an = fit_anomaly(
         tr.loc[tr["label"] == data.BENIGN, ctx.feats].to_numpy(),
         ca.loc[ca["label"] == data.BENIGN, ctx.feats].to_numpy(),
         benign_rate=ANOMALY_BENIGN_RATE,
     )
-    return det, cp, an, te
+    return det, cp, an, te, (p_ca, y_ca)
 
 
 def stage_final(ctx: Ctx, strategy: str) -> None:
-    det, cp, an, te = _doubt_pipeline(ctx, ctx.chrono, strategy, ctx.classes)
+    det, cp, an, te, (p_ca, y_ca) = _doubt_pipeline(ctx, ctx.chrono, strategy, ctx.classes)
     y = _encode(te["label"], ctx.classes)
     t = time.perf_counter()
     p = det.proba(te[ctx.feats])
@@ -96,6 +99,7 @@ def stage_final(ctx: Ctx, strategy: str) -> None:
     _write("final", {
         "strategy": strategy,
         "alpha": ALPHA,
+        "alpha_benign": ALPHA_BENIGN,
         "anomaly_benign_rate": ANOMALY_BENIGN_RATE,
         "classifier": summary(y, p, ctx.classes),
         "verdicts": vs,
@@ -106,6 +110,16 @@ def stage_final(ctx: Ctx, strategy: str) -> None:
         "python_batch_latency_us_per_flow": us_per_flow,
         "base_rate": base_rate_table(vs["benign_alert_rate"]),
     })
+    # Sensitivity of the benign false-alert budget (evaluation only; ALPHA_BENIGN is fixed above).
+    curve = []
+    for ab in ALPHA_BENIGN_SWEEP:
+        cp_s = MondrianConformal.fit(p_ca, y_ca, alpha=ALPHA, alpha_benign=ab)
+        v_s, pred_s = verdicts(cp_s.predict_sets(p), p, a, an.threshold)
+        m = verdict_summary(y, v_s, pred_s, ctx.classes)
+        curve.append({"alpha_benign": ab, **{k: m[k] for k in ("benign_alert_rate", "attack_flagged", "attack_known_correct", "attack_unknown", "attack_missed")}})
+        print(f"  alpha_benign={ab:<7} benign_alert={m['benign_alert_rate']:.4f} attack_missed={m['attack_missed']:.5f} known_correct={m['attack_known_correct']:.4f}")
+    _write("operating_curve", {"chosen_alpha_benign": ALPHA_BENIGN, "alpha_attacks": ALPHA, "rows": curve})
+
     import joblib  # local: only needed when persisting
 
     out = data.ML_ROOT / "data" / "out"
@@ -133,7 +147,7 @@ def stage_zero_day(ctx: Ctx, strategy: str) -> None:
         split = leave_family_out(ctx.df, fam, ctx.chrono)
         held = ctx.df["family"] == fam
         classes = class_order(ctx.df.loc[~held, "label"])
-        det, cp, an, te = _doubt_pipeline(ctx, split, strategy, classes)
+        det, cp, an, te, _ = _doubt_pipeline(ctx, split, strategy, classes)
         te_fam = te[te["family"] == fam]
         te_ben = te[te["label"] == data.BENIGN]
         def run(frame):
