@@ -4,8 +4,9 @@ import { Wordmark } from "./Logo";
 
 const links = [
   { href: "/#how", label: "How it works" },
-  { href: "/method", label: "Method" },
   { href: "/console", label: "Console" },
+  { href: "/check", label: "Check your network" },
+  { href: "/method", label: "Method" },
 ];
 
 export function Nav() {
