@@ -1,0 +1,68 @@
+"""Train / calibration / test splits. See docs/METHOD.md for why each exists."""
+
+from __future__ import annotations
+
+import numpy as np
+import pandas as pd
+
+from .data import BENIGN
+
+TRAIN, CAL, TEST = "train", "cal", "test"
+FRACTIONS = (0.6, 0.2, 0.2)
+
+
+def _chronological(idx_sorted: np.ndarray, out: np.ndarray) -> None:
+    n = len(idx_sorted)
+    a = int(round(n * FRACTIONS[0]))
+    b = int(round(n * (FRACTIONS[0] + FRACTIONS[1])))
+    out[idx_sorted[:a]] = TRAIN
+    out[idx_sorted[a:b]] = CAL
+    out[idx_sorted[b:]] = TEST
+
+
+def chronological_within_campaign(df: pd.DataFrame) -> pd.Series:
+    """Per attack class (and per day for benign): first 60% of flows by time train,
+    next 20% calibrate, last 20% test. No shuffling, so a campaign's later flows are
+    never used to learn its earlier ones."""
+    out = np.empty(len(df), dtype=object)
+    order = np.argsort(df["ts"].to_numpy(), kind="stable")
+    labels = df["label"].to_numpy()[order]
+    days = df["day"].astype(str).to_numpy()[order]
+    groups = np.where(labels == BENIGN, "BENIGN|" + days, labels)
+    for g in pd.unique(groups):
+        _chronological(order[groups == g], out)
+    return pd.Series(out, index=df.index, name="split")
+
+
+def random_stratified(df: pd.DataFrame, seed: int = 7) -> pd.Series:
+    """Shuffled stratified split. Used only to show how much it inflates results."""
+    rng = np.random.default_rng(seed)
+    out = np.empty(len(df), dtype=object)
+    labels = df["label"].to_numpy()
+    for lab in pd.unique(labels):
+        idx = np.flatnonzero(labels == lab)
+        rng.shuffle(idx)
+        _chronological(idx, out)
+    return pd.Series(out, index=df.index, name="split")
+
+
+def leave_family_out(df: pd.DataFrame, family: str, base: pd.Series) -> pd.Series:
+    """Remove one family from train and calibration; all its flows go to test."""
+    out = base.copy()
+    held = (df["family"] == family).to_numpy()
+    out[held] = TEST
+    return out
+
+
+def cap_benign_train(df: pd.DataFrame, split: pd.Series, cap: int, seed: int = 7) -> pd.Series:
+    """Downsample benign training rows (time-stratified) to keep training fast.
+    Calibration and test keep every benign flow so FPR stays realistic."""
+    out = split.copy()
+    mask = ((split == TRAIN) & (df["label"] == BENIGN)).to_numpy()
+    idx = np.flatnonzero(mask)
+    if len(idx) <= cap:
+        return out
+    rng = np.random.default_rng(seed)
+    drop = rng.choice(idx, size=len(idx) - cap, replace=False)
+    out.iloc[drop] = None
+    return out
