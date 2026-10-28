@@ -258,7 +258,7 @@ function Session({ sessionId, onExit }: { sessionId: string; onExit: () => void 
         </aside>
       </div>
 
-      {selected !== null && <InvestigationPanel incidentId={selected} onClose={() => setSelected(null)} onDecided={refresh} />}
+      {selected !== null && <InvestigationPanel key={selected} incidentId={selected} onClose={() => setSelected(null)} onDecided={refresh} />}
     </section>
   );
 }

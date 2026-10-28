@@ -1,7 +1,7 @@
 "use client";
 
 import { ExternalLink, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { familyInfo, STATUS_LABEL } from "@/lib/security";
 import { familyOf } from "@/lib/triage";
 import type { Evidence } from "./types";
@@ -19,23 +19,26 @@ export function InvestigationPanel({ incidentId, onClose, onDecided }: { inciden
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState<string | null>(null);
   const [result, setResult] = useState<{ status: keyof typeof STATUS_LABEL; truthFamily: string } | null>(null);
+  // The parent passes a new onClose on every render; keeping it in a ref means recording a decision (which
+  // re-renders the console) doesn't re-run the load effect and blank the panel.
+  const closeRef = useRef(onClose);
+  useEffect(() => {
+    closeRef.current = onClose;
+  }, [onClose]);
 
   useEffect(() => {
     let live = true;
-    setEv(null);
-    setResult(null);
-    setError(null);
     fetch(`/api/incidents/${incidentId}`, { cache: "no-store" })
       .then(async (r) => (r.ok ? r.json() : Promise.reject((await r.json().catch(() => ({}))).error)))
       .then((d) => live && setEv(d))
       .catch((e) => live && setError(typeof e === "string" ? e : "Couldn't load this incident."));
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && closeRef.current();
     window.addEventListener("keydown", onKey);
     return () => {
       live = false;
       window.removeEventListener("keydown", onKey);
     };
-  }, [incidentId, onClose]);
+  }, [incidentId]);
 
   async function decide(action: string) {
     setPending(action);
