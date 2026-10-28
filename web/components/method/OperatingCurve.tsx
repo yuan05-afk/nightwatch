@@ -67,6 +67,7 @@ export function OperatingCurve({ rows, chosen }: { rows: Row[]; chosen: number }
                   r={16}
                   fill="transparent"
                   tabIndex={0}
+                  role="img"
                   aria-label={`alpha ${r.alpha_benign}: ${pct(r.benign_alert_rate)} benign alerts, ${pct(r.attack_missed)} attacks missed`}
                   onMouseEnter={() => setHover(i)}
                   onMouseLeave={() => setHover(null)}

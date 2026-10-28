@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { authClient } from "@/lib/auth/client";
+import type { authClient as AuthClient } from "@/lib/auth/client";
 import { safeNext } from "@/lib/safe-next";
 
 const DEMO_EMAIL = process.env.NEXT_PUBLIC_DEMO_EMAIL;
@@ -15,11 +15,13 @@ export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function run(fn: () => Promise<{ error?: { message?: string } | null }>) {
+  // The auth client loads on first use, so it is not part of the page's initial JavaScript.
+  async function run(fn: (client: typeof AuthClient) => Promise<{ error?: { message?: string } | null }>) {
     setPending(true);
     setError(null);
     try {
-      const { error } = await fn();
+      const { authClient } = await import("@/lib/auth/client");
+      const { error } = await fn(authClient);
       if (error) {
         setError(error.message ?? "That didn't work. Check your details and try again.");
         return;
@@ -41,9 +43,9 @@ export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
     const password = String(form.get("password") ?? "");
     if (mode === "sign-up") {
       const name = String(form.get("name") ?? "").trim() || email.split("@")[0];
-      run(() => authClient.signUp.email({ email, password, name }));
+      run((c) => c.signUp.email({ email, password, name }));
     } else {
-      run(() => authClient.signIn.email({ email, password }));
+      run((c) => c.signIn.email({ email, password }));
     }
   }
 
@@ -79,7 +81,7 @@ export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
         <button
           type="button"
           disabled={pending}
-          onClick={() => run(() => authClient.signIn.email({ email: DEMO_EMAIL, password: DEMO_PASSWORD }))}
+          onClick={() => run((c) => c.signIn.email({ email: DEMO_EMAIL, password: DEMO_PASSWORD }))}
           className="btn mt-3 w-full justify-center disabled:opacity-60"
         >
           Use the judge demo account

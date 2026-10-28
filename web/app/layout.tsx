@@ -12,6 +12,8 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+  // Small data labels only, never the largest paint; measured: preloading it costs the home page 3 points.
+  preload: false,
 });
 
 export const metadata: Metadata = {
