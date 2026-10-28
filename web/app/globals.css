@@ -330,7 +330,7 @@ body {
   filter: blur(10px);
 }
 .footer-word {
-  font-size: clamp(2.4rem, 8.4vw, 8.6rem);
+  font-size: clamp(2rem, 6.6vw, 6.8rem);
   letter-spacing: -0.035em;
   background: linear-gradient(to bottom, var(--ink) 30%, transparent 92%);
   -webkit-background-clip: text;
