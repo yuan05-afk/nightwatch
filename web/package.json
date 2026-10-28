@@ -12,6 +12,7 @@
     "@neondatabase/auth": "^0.6.0-beta",
     "@neondatabase/serverless": "^1.2.0",
     "drizzle-orm": "^0.45.4",
+    "lucide-react": "^1.62.0",
     "motion": "^14.7.1",
     "next": "16.4.3",
     "react": "19.3.0",
