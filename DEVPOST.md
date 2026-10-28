@@ -131,7 +131,7 @@ Testing on the corrected CSE-CIC-IDS2018 for drift, learning from analyst decisi
 
 - **Yuan Andrei C. Mariano** (@yuan05-afk): concept and product design, ML pipeline and evaluation, TypeScript scoring engine, web app and deployment, presentation and demo video.
 - **Alicia Jhyle Vilale** (@asvilale): research and problem framing (the PhilHealth case, NPC breach rules, sources and target users), testing and quality assurance of the live demo and its claims.
-- **@ymir-hackathon:** _[add this teammate's name and contribution before submitting]_
+- **Andy Patillano** (@ycmariano): presentation and pitch (the deck's story and its delivery), testing and quality assurance of the live demo flows.
 
 ## Acknowledgements
 
