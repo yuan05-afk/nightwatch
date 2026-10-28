@@ -28,3 +28,7 @@ out/
 
 # deck renders (regenerate with deck/build.sh)
 deck/render/
+
+# submission bundle (regenerate with submission/build_zip.py)
+submission/*.zip
+submission/_bundle/

@@ -20,7 +20,9 @@ WORDS, VO_DUR = WJ["words"], WJ["duration"]
 
 VO_OFFSET = 1.0
 # (VO time inside a silence, extra seconds of silence inserted there)
-GAPS = [(22.7, 0.6), (26.7, 0.5), (34.3, 0.4), (46.2, 0.4), (56.1, 0.5), (64.3, 0.4), (75.4, 0.5), (78.7, 1.0), (86.6, 0.6), (94.2, 0.8), (108.6, 0.6), (124.4, 0.5)]
+# Every cut sits in measured silence between words (checked against the take's level, see the QA note in
+# README.md): a cut inside a word splits it.
+GAPS = [(22.7, 0.6), (26.7, 0.5), (34.3, 0.4), (46.02, 0.4), (56.1, 0.5), (64.3, 0.4), (75.4, 0.5), (78.94, 1.0), (86.6, 0.6), (94.40, 0.8), (108.6, 0.6), (124.4, 0.5)]
 TAIL = 5.0
 
 
@@ -197,6 +199,10 @@ for i, (a, b, text) in enumerate(CAPS):
     end = min(end, limit)
     if end - start < 0.8:
         end = min(start + 0.8, limit)
+    # Whisper can place a word start a few ms before an inserted pause; never let a caption open inside it.
+    for b, _g in GAPS:
+        if start < b <= start + 0.15:
+            start = b
     captions.append({"start": v(start), "end": v(end), "text": text})
 
 # ------------------------------------------------------------------ named times used by the scenes (video time)

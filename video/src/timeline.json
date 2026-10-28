@@ -16,7 +16,7 @@
    0.4
   ],
   [
-   46.2,
+   46.02,
    0.4
   ],
   [
@@ -32,7 +32,7 @@
    0.5
   ],
   [
-   78.7,
+   78.94,
    1.0
   ],
   [
@@ -40,7 +40,7 @@
    0.6
   ],
   [
-   94.2,
+   94.4,
    0.8
   ],
   [
@@ -623,11 +623,11 @@
   },
   {
    "start": 80.42,
-   "end": 84.15,
+   "end": 83.15,
    "text": "Confirm the threat, and Nightwatch drafts the incident report."
   },
   {
-   "start": 84.18,
+   "start": 84.24,
    "end": 87.04,
    "text": "A timeline, the affected hosts,"
   },

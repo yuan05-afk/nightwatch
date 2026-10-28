@@ -17,7 +17,7 @@ try {
   $pres = $app.Presentations.Open($Deck, -1, 0, 0)
   $i = 1
   foreach ($s in $pres.Slides) {
-    $s.Export((Join-Path $Out ("slide-{0:D2}.png" -f $i)), "PNG", 1600, 900)
+    $s.Export((Join-Path $Out ("slide-{0:D2}.png" -f $i)), "PNG", $Width, $Height)
     $i++
   }
 } finally {
