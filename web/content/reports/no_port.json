@@ -1,0 +1,65 @@
+{
+  "strategy": "balanced",
+  "removed": [
+    "f_dst_port",
+    "f_protocol"
+  ],
+  "rows": [
+    {
+      "features": "all_features",
+      "n_features": 83,
+      "macro_f1_attacks": 0.8648397290573514,
+      "mean_pr_auc_attacks": 0.9618716898996578,
+      "attack_recall_any": 0.997606022535044,
+      "attack_flagged": 0.9996141937143252,
+      "attack_known_correct": 0.9301492773551495,
+      "attack_missed": 0.00038580628567471586,
+      "benign_alert_rate": 0.004165158788143637,
+      "per_class_f1": {
+        "BENIGN": 0.999552926963282,
+        "Botnet": 0.9702970297029703,
+        "DDoS": 0.9994479059862765,
+        "DoS GoldenEye": 0.9966865473823724,
+        "DoS Hulk": 0.9997476499905369,
+        "DoS Slowhttptest": 0.6301703163017032,
+        "DoS Slowloris": 0.7459954233409611,
+        "FTP-Patator": 0.9993698802772527,
+        "Heartbleed": 1.0,
+        "Infiltration": 0.7272727272727273,
+        "PortScan": 0.9989810298102981,
+        "SSH-Patator": 0.9713292788879235,
+        "Web Brute Force": 0.9655172413793104,
+        "Web SQL Injection": 0.35294117647058826,
+        "Web XSS": 0.75
+      }
+    },
+    {
+      "features": "no_port_protocol",
+      "n_features": 81,
+      "macro_f1_attacks": 0.868342493781643,
+      "mean_pr_auc_attacks": 0.9557351750248608,
+      "attack_recall_any": 0.9974675279709557,
+      "attack_flagged": 0.9990701079268353,
+      "attack_known_correct": 0.938478736138178,
+      "attack_missed": 0.0009298920731646998,
+      "benign_alert_rate": 0.003325298901354018,
+      "per_class_f1": {
+        "BENIGN": 0.9994897828590931,
+        "Botnet": 1.0,
+        "DDoS": 0.9994479059862765,
+        "DoS GoldenEye": 0.9996696399074991,
+        "DoS Hulk": 0.9997318738860937,
+        "DoS Slowhttptest": 0.6602409638554216,
+        "DoS Slowloris": 0.7448591012947449,
+        "FTP-Patator": 0.9936628643852978,
+        "Heartbleed": 1.0,
+        "Infiltration": 0.8333333333333334,
+        "PortScan": 0.9990027100271003,
+        "SSH-Patator": 0.9713292788879235,
+        "Web Brute Force": 0.9655172413793104,
+        "Web SQL Injection": 0.24,
+        "Web XSS": 0.75
+      }
+    }
+  ]
+}

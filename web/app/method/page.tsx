@@ -3,7 +3,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/landing/Footer";
 import { OperatingCurve } from "@/components/method/OperatingCurve";
 import { PITFALLS } from "@/lib/pitfalls";
-import { ablation, anomalyAblation, finalReport, illusion, operating, pct, triage, zeroDay } from "@/lib/reports";
+import { ablation, anomalyAblation, finalReport, illusion, noPort, operating, pct, triage, zeroDay } from "@/lib/reports";
 
 export const metadata = { title: "Method · Nightwatch" };
 
@@ -90,6 +90,22 @@ export default function MethodPage() {
               pct(r.test.benign_fpr ?? 0, 3),
             ])}
             align={["l", "r", "r", "r", "r"]}
+          />
+
+          <H2>Is it just reading port numbers?</H2>
+          <P>
+            Destination port is the strongest single signal for some classes, so we retrained the whole pipeline without port and
+            protocol. Results barely move: the model is reading how the traffic behaves, not which door it knocks on.
+          </P>
+          <Table
+            head={["Features", "Macro-F1, attack classes", "Attack flows flagged", "Benign false alerts"]}
+            rows={noPort.rows.map((r) => [
+              r.features === "all_features" ? `All ${r.n_features} (used)` : `Without port and protocol (${r.n_features})`,
+              r.macro_f1_attacks.toFixed(3),
+              pct(r.attack_flagged, 2),
+              pct(r.benign_alert_rate, 2),
+            ])}
+            align={["l", "r", "r", "r"]}
           />
 
           <H2>Per-class results on held-out traffic</H2>

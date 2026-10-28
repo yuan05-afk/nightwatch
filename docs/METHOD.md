@@ -52,7 +52,7 @@ Benign is 75.7% of flows; five attack classes have fewer than 100 flows. Results
 
 ### Features
 
-Dropped to prevent shortcut learning (Arp et al. pitfall P4, spurious correlations): Flow ID, Src IP, Dst IP, Src Port, Timestamp, and any dataset bookkeeping columns. In this testbed the attacker is almost always `172.16.0.1`; a model that sees IPs learns the lab, not the attack. Destination port and protocol are kept (they are legitimate service context) and a no-port ablation is reported.
+Dropped to prevent shortcut learning (Arp et al. pitfall P4, spurious correlations): Flow ID, Src IP, Dst IP, Src Port, Timestamp, and any dataset bookkeeping columns. In this testbed the attacker is almost always `172.16.0.1`; a model that sees IPs learns the lab, not the attack. Destination port and protocol are kept (they are legitimate service context). A no-port ablation (`pipeline no_port`, `reports/no_port.json`) retrains the full pipeline without them: macro-F1 over attack classes goes from 0.865 to 0.868, attack flows flagged from 99.96% to 99.91%, benign false alerts from 0.42% to 0.33%. The model does not depend on port numbers.
 
 ## Splits (the Accuracy Illusion)
 

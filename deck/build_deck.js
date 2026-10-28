@@ -18,6 +18,7 @@ const final = R("final.json");
 const illusion = R("illusion.json");
 const ablation = R("ablation.json");
 const zeroDay = R("zero_day.json");
+const noPort = R("no_port.json").rows.find((r) => r.features === "no_port_protocol");
 const triage = R("triage.json");
 const parity = JSON.parse(fs.readFileSync(path.join(ROOT, "web", "lib", "scoring", "model", "parity.json"), "utf8"));
 
@@ -280,9 +281,10 @@ section("Evidence");
   const facts = [
     [">25%", "of flows in the original CIC-IDS2017 were mislabeled or broken. We use the corrected release."],
     ["30 of 30", "top security ML papers had at least three evaluation pitfalls. We check ourselves against all ten."],
+    [pct(noPort.macro_f1_attacks), "macro-F1 with port and protocol removed. It reads behavior, not port numbers."],
   ];
   facts.forEach(([v, l], i) => {
-    const y = 3.5 + i * 1.45;
+    const y = 3.35 + i * 1.08;
     text(s, v, { x: X0, y, w: 1.9, h: 0.6, fontSize: 28, bold: true, color: C.accent2 });
     text(s, l, { x: X0 + 2.0, y: y + 0.02, w: 3.6, h: 1.2, fontSize: 14, color: SOFT });
   });
@@ -294,7 +296,7 @@ section("Evidence");
     chartColors: [HEX.lt2, HEX.accent1], showValue: true, dataLabelPosition: "outEnd", dataLabelFormatCode: "0.00", valAxisMinVal: 0, valAxisMaxVal: 115, valAxisMajorUnit: 25, valAxisLabelFormatCode: "0",
     showLegend: true, legendPos: "b", showTitle: true, title: "Same model, two ways of testing (%)",
   }));
-  source(s, "Sources: Engelen et al., IEEE SPW 2021; Liu et al., IEEE CNS 2022; Arp et al., USENIX Security 2022. Numbers: ml/reports/illusion.json.");
+  source(s, "Sources: Engelen et al., IEEE SPW 2021; Liu et al., IEEE CNS 2022; Arp et al., USENIX Security 2022. Numbers: ml/reports/illusion.json, no_port.json.");
   s.addNotes("This is our rigor slide. Accuracy barely moves between the two tests, because 99% of traffic is normal. Macro-F1 over attack classes is the honest number, and we test on traffic later in time than training, the way a real deployment works.");
 }
 

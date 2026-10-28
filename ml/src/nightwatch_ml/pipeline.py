@@ -169,6 +169,37 @@ def stage_zero_day(ctx: Ctx, strategy: str) -> None:
     _write("zero_day", {"strategy": strategy, "alpha": ALPHA, "rows": rows})
 
 
+SERVICE_CONTEXT = ("f_dst_port", "f_protocol")
+
+
+def stage_no_port(ctx: Ctx, strategy: str) -> None:
+    """Same split and pipeline with destination port and protocol removed (Arp P4: is the model just reading ports?)."""
+    rows = []
+    for name, feats in (("all_features", ctx.feats), ("no_port_protocol", [f for f in ctx.feats if f not in SERVICE_CONTEXT])):
+        tr, ca, te = (ctx.part(ctx.chrono, k) for k in (TRAIN, CAL, TEST))
+        det = fit(tr[feats], tr["label"], strategy=strategy, classes=ctx.classes)
+        p_ca = det.proba(ca[feats])
+        cp = MondrianConformal.fit(p_ca, _encode(ca["label"], ctx.classes), alpha=ALPHA, alpha_benign=ALPHA_BENIGN)
+        an = fit_anomaly(
+            tr.loc[tr["label"] == data.BENIGN, feats].to_numpy(),
+            ca.loc[ca["label"] == data.BENIGN, feats].to_numpy(),
+            benign_rate=ANOMALY_BENIGN_RATE,
+        )
+        y = _encode(te["label"], ctx.classes)
+        p = det.proba(te[feats])
+        v, pred = verdicts(cp.predict_sets(p), p, an.score(te[feats].to_numpy()), an.threshold)
+        m, vs = summary(y, p, ctx.classes), verdict_summary(y, v, pred, ctx.classes)
+        rows.append({
+            "features": name,
+            "n_features": len(feats),
+            **{k: m[k] for k in ("macro_f1_attacks", "mean_pr_auc_attacks", "attack_recall_any")},
+            **{k: vs[k] for k in ("attack_flagged", "attack_known_correct", "attack_missed", "benign_alert_rate")},
+            "per_class_f1": {r["class"]: r["f1"] for r in m["per_class"]},
+        })
+        print(f"  {name:17s} macroF1(attacks)={m['macro_f1_attacks']:.4f} flagged={vs['attack_flagged']:.4f} benign_alert={vs['benign_alert_rate']:.4f}")
+    _write("no_port", {"strategy": strategy, "removed": list(SERVICE_CONTEXT), "rows": rows})
+
+
 def main(stages: list[str]) -> None:
     ctx = Ctx()
     strategy = None
@@ -182,7 +213,9 @@ def main(stages: list[str]) -> None:
         stage_illusion(ctx, strategy)
     if "zero_day" in stages:
         stage_zero_day(ctx, strategy)
+    if "no_port" in stages:
+        stage_no_port(ctx, strategy)
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:] or ["ablation", "final", "illusion", "zero_day"])
+    main(sys.argv[1:] or ["ablation", "final", "illusion", "zero_day", "no_port"])
