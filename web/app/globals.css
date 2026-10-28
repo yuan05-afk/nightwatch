@@ -15,8 +15,8 @@
   --gold: #c9b26a;
 
   --verdict-known: #7fe3c4;   /* known attack, handled */
-  --verdict-unknown: #d9bf6e; /* unknown: investigate */
-  --verdict-attack: #e8907f;  /* confirmed attack */
+  --verdict-unknown: #e6ad55; /* unknown: investigate */
+  --verdict-attack: #e9748f;  /* confirmed attack */
   --verdict-quiet: #7c878c;   /* suppressed / benign */
 
   --glass: rgba(255, 255, 255, 0.03);
@@ -44,8 +44,8 @@
   --color-hairline: var(--hairline);
   --color-hairline-strong: var(--hairline-strong);
 
-  --font-display: var(--font-newsreader);
-  --font-sans: var(--font-hanken);
+  --font-display: var(--font-plex-sans);
+  --font-sans: var(--font-plex-sans);
   --font-mono: var(--font-plex-mono);
 }
 
@@ -56,18 +56,19 @@ html {
 body {
   background: var(--night);
   color: var(--ink);
-  font-family: var(--font-hanken), system-ui, sans-serif;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
   font-size: 15px;
+  font-feature-settings: "tnum" 1;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Headings: same family as the UI, heavier and tighter. No display serif. */
 .font-display {
-  font-family: var(--font-newsreader), Georgia, serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  letter-spacing: -0.015em;
-  line-height: 1.04;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
 }
 
 :focus-visible {
@@ -252,4 +253,153 @@ body {
   background:
     radial-gradient(70% 30% at 50% 0%, color-mix(in oklab, var(--teal-deep) 26%, transparent), transparent 70%),
     var(--night);
+}
+
+/* ---------- Isometric stage (How it works) ---------- */
+.iso-stage {
+  position: relative;
+  height: 420px;
+  display: grid;
+  place-items: center;
+  perspective: 1600px;
+}
+.iso {
+  position: relative;
+  width: min(360px, 78vw);
+  aspect-ratio: 4 / 3;
+  transform: rotateX(56deg) rotateZ(-38deg);
+  transform-style: preserve-3d;
+}
+.iso-plane {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  border: 1px solid var(--hairline-strong);
+  background: rgba(255, 255, 255, 0.02);
+}
+.iso-plane-3 { transform: translateZ(-90px); opacity: 0.5; }
+.iso-plane-2 { transform: translateZ(-45px); opacity: 0.75; }
+.iso-card {
+  transform: translateZ(0);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015));
+  border-color: transparent;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.9);
+  animation: iso-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+/* aurora rim around the active card: teal -> mint -> gold, one hue family */
+.iso-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, var(--teal), var(--mint) 45%, var(--gold));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.iso-card::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: inherit;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--mint) 22%, transparent), transparent);
+  filter: blur(30px);
+  transform: translateZ(-20px);
+  z-index: -1;
+}
+@keyframes iso-in {
+  from { opacity: 0; transform: translateZ(24px); }
+  to { opacity: 1; transform: translateZ(0); }
+}
+@media (max-width: 640px) {
+  .iso-stage { height: 300px; }
+}
+
+/* ---------- Pillars, CTA, footer ---------- */
+.pillar-floor {
+  background:
+    linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.0) 100%),
+    repeating-linear-gradient(115deg, transparent 0 46px, rgba(255, 255, 255, 0.035) 46px 47px),
+    repeating-linear-gradient(65deg, transparent 0 46px, rgba(255, 255, 255, 0.035) 46px 47px);
+  mask-image: radial-gradient(70% 90% at 50% 70%, #000 40%, transparent 80%);
+}
+.cta-glow {
+  background: radial-gradient(55% 80% at 50% 100%, color-mix(in oklab, var(--teal) 40%, transparent), color-mix(in oklab, var(--gold) 8%, transparent) 55%, transparent 75%);
+  filter: blur(10px);
+}
+.footer-word {
+  font-size: clamp(2.4rem, 8.4vw, 8.6rem);
+  letter-spacing: -0.035em;
+  background: linear-gradient(to bottom, var(--ink) 30%, transparent 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: -0.12em;
+}
+.impact-tile::before {
+  content: "";
+  position: absolute;
+  inset: auto -20% -60% -20%;
+  height: 80%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--teal) 22%, transparent), transparent);
+  pointer-events: none;
+}
+
+/* ---------- App surfaces (console, investigation, reports): flat, no gradients, no glow ---------- */
+.app-bg { background: #050606; }
+.panel {
+  background: #0b0d0e;
+  border: 1px solid #1c2022;
+  border-radius: 10px;
+}
+.panel-head {
+  border-bottom: 1px solid #1c2022;
+}
+.app-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  height: 2.25rem;
+  padding: 0 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #2a2f32;
+  background: #121516;
+  color: var(--ink);
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.app-btn:hover { background: #181c1e; border-color: #3a4044; }
+.app-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.app-btn-primary { background: var(--mint); border-color: var(--mint); color: #04130e; }
+.app-btn-primary:hover { background: #95ead0; border-color: #95ead0; }
+.app-btn-danger { background: transparent; border-color: color-mix(in oklab, var(--verdict-attack) 60%, transparent); color: var(--verdict-attack); }
+.app-btn-danger:hover { background: color-mix(in oklab, var(--verdict-attack) 12%, transparent); }
+
+.sev {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+}
+.sev-Critical { color: #f2508f; background: rgba(242, 80, 143, 0.1); }
+.sev-High { color: #f38a3c; background: rgba(243, 138, 60, 0.1); }
+.sev-Medium { color: #d6db7e; background: rgba(214, 219, 126, 0.08); }
+.sev-Low { color: #8fb3c9; background: rgba(143, 179, 201, 0.08); }
+
+/* ---------- Print: the incident report becomes a plain black-on-white document ---------- */
+@media print {
+  .no-print, nextjs-portal { display: none !important; }
+  html, body, .app-bg { background: #fff !important; color: #111 !important; }
+  .report .panel { background: #fff; border: none; padding: 0; }
+  .report, .report * { color: #111 !important; border-color: #ccc !important; }
+  .report .sev { background: transparent !important; }
 }

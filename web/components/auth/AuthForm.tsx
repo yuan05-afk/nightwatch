@@ -48,9 +48,9 @@ export function AuthForm({ mode }: { mode: "sign-in" | "sign-up" }) {
 
   return (
     <div className="glass w-full max-w-[400px] rounded-3xl p-7 sm:p-8">
-      <h1 className="font-display text-[2.1rem] text-ink">{mode === "sign-in" ? "Start your shift" : "Create an analyst account"}</h1>
+      <h1 className="font-display text-[2.1rem] text-ink">{mode === "sign-in" ? "Sign in to Nightwatch" : "Create an analyst account"}</h1>
       <p className="mt-2 text-[0.9rem] text-ink-soft">
-        {mode === "sign-in" ? "Sign in to open the Watchfloor." : "Your shifts and triage decisions are saved to your account."}
+        {mode === "sign-in" ? "Sign in to open the security console." : "Your monitoring sessions and decisions are saved to your account."}
       </p>
 
       <form onSubmit={onSubmit} className="mt-7 flex flex-col gap-4">
@@ -112,5 +112,5 @@ function Field(props: { name: string; label: string; type?: string; autoComplete
 
 /** Only same-site paths; never redirect off-site after login. */
 function safeNext(value: string | null): string {
-  return value && value.startsWith("/") && !value.startsWith("//") ? value : "/watchfloor";
+  return value && value.startsWith("/") && !value.startsWith("//") ? value : "/console";
 }

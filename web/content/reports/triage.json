@@ -1,0 +1,150 @@
+{
+  "budgets": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "days": [
+    {
+      "day": "Fri",
+      "incidents": 126,
+      "attack_incidents": 12,
+      "alerts": 65728,
+      "reached": {
+        "5": {
+          "nightwatch": 5,
+          "fifo": 5,
+          "confidence": 0
+        },
+        "10": {
+          "nightwatch": 9,
+          "fifo": 9,
+          "confidence": 0
+        },
+        "20": {
+          "nightwatch": 12,
+          "fifo": 9,
+          "confidence": 0
+        },
+        "40": {
+          "nightwatch": 12,
+          "fifo": 9,
+          "confidence": 0
+        }
+      }
+    },
+    {
+      "day": "Mon",
+      "incidents": 96,
+      "attack_incidents": 0,
+      "alerts": 119,
+      "reached": {
+        "5": {
+          "nightwatch": 0,
+          "fifo": 0,
+          "confidence": 0
+        },
+        "10": {
+          "nightwatch": 0,
+          "fifo": 0,
+          "confidence": 0
+        },
+        "20": {
+          "nightwatch": 0,
+          "fifo": 0,
+          "confidence": 0
+        },
+        "40": {
+          "nightwatch": 0,
+          "fifo": 0,
+          "confidence": 0
+        }
+      }
+    },
+    {
+      "day": "Thu",
+      "incidents": 84,
+      "attack_incidents": 5,
+      "alerts": 127,
+      "reached": {
+        "5": {
+          "nightwatch": 4,
+          "fifo": 3,
+          "confidence": 1
+        },
+        "10": {
+          "nightwatch": 5,
+          "fifo": 3,
+          "confidence": 1
+        },
+        "20": {
+          "nightwatch": 5,
+          "fifo": 3,
+          "confidence": 2
+        },
+        "40": {
+          "nightwatch": 5,
+          "fifo": 3,
+          "confidence": 2
+        }
+      }
+    },
+    {
+      "day": "Tue",
+      "incidents": 72,
+      "attack_incidents": 2,
+      "alerts": 1471,
+      "reached": {
+        "5": {
+          "nightwatch": 2,
+          "fifo": 2,
+          "confidence": 0
+        },
+        "10": {
+          "nightwatch": 2,
+          "fifo": 2,
+          "confidence": 0
+        },
+        "20": {
+          "nightwatch": 2,
+          "fifo": 2,
+          "confidence": 0
+        },
+        "40": {
+          "nightwatch": 2,
+          "fifo": 2,
+          "confidence": 0
+        }
+      }
+    },
+    {
+      "day": "Wed",
+      "incidents": 93,
+      "attack_incidents": 3,
+      "alerts": 34823,
+      "reached": {
+        "5": {
+          "nightwatch": 2,
+          "fifo": 2,
+          "confidence": 0
+        },
+        "10": {
+          "nightwatch": 3,
+          "fifo": 2,
+          "confidence": 0
+        },
+        "20": {
+          "nightwatch": 3,
+          "fifo": 2,
+          "confidence": 0
+        },
+        "40": {
+          "nightwatch": 3,
+          "fifo": 2,
+          "confidence": 0
+        }
+      }
+    }
+  ]
+}

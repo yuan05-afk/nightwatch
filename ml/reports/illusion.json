@@ -11,11 +11,11 @@
     },
     {
       "split": "chronological",
-      "accuracy": 0.9984118896370442,
-      "macro_f1": 0.8664059053062927,
-      "macro_f1_attacks": 0.8569067904753725,
-      "benign_fpr": 0.00016305591877306693,
-      "attack_recall_any": 0.9966860229307428
+      "accuracy": 0.9986040361123167,
+      "macro_f1": 0.8738206089177468,
+      "macro_f1_attacks": 0.8648397290573514,
+      "benign_fpr": 6.828129160891207e-05,
+      "attack_recall_any": 0.997606022535044
     }
   ]
 }

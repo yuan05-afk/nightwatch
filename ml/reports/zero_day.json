@@ -6,73 +6,73 @@
       "held_out_family": "Botnet",
       "n": 736,
       "flagged_known_other": 0.0,
-      "flagged_unknown": 0.0,
-      "missed_as_benign": 1.0,
-      "benign_alert_rate": 0.003019670188047374,
-      "seconds": 96.3
+      "flagged_unknown": 0.07336956521739131,
+      "missed_as_benign": 0.9266304347826086,
+      "benign_alert_rate": 0.004581674666958,
+      "seconds": 49.0
     },
     {
       "held_out_family": "Brute Force",
       "n": 7006,
       "flagged_known_other": 0.009991435912075365,
-      "flagged_unknown": 0.0017128175849272054,
-      "missed_as_benign": 0.9882957465029975,
-      "benign_alert_rate": 0.0024552458538329115,
-      "seconds": 78.4
+      "flagged_unknown": 0.0015700827861832715,
+      "missed_as_benign": 0.9884384813017414,
+      "benign_alert_rate": 0.004349518275487699,
+      "seconds": 62.1
     },
     {
       "held_out_family": "DDoS",
       "n": 95144,
       "flagged_known_other": 0.0,
-      "flagged_unknown": 0.9996321365509123,
-      "missed_as_benign": 0.0003678634490876986,
-      "benign_alert_rate": 0.0025806734836583477,
-      "seconds": 59.0
+      "flagged_unknown": 0.9999789792314807,
+      "missed_as_benign": 2.1020768519297065e-05,
+      "benign_alert_rate": 0.004025182140345367,
+      "seconds": 86.6
     },
     {
       "held_out_family": "DoS",
       "n": 171634,
       "flagged_known_other": 0.0,
-      "flagged_unknown": 0.1703799946397567,
-      "missed_as_benign": 0.8296200053602433,
-      "benign_alert_rate": 0.0026433872985710655,
-      "seconds": 47.6
+      "flagged_unknown": 0.40600929885686987,
+      "missed_as_benign": 0.5939907011431301,
+      "benign_alert_rate": 0.0038886195571275427,
+      "seconds": 47.8
     },
     {
       "held_out_family": "Heartbleed",
       "n": 11,
       "flagged_known_other": 0.0,
-      "flagged_unknown": 0.9090909090909091,
-      "missed_as_benign": 0.09090909090909091,
-      "benign_alert_rate": 0.002797036145107225,
-      "seconds": 91.2
+      "flagged_unknown": 1.0,
+      "missed_as_benign": 0.0,
+      "benign_alert_rate": 0.004397315179613937,
+      "seconds": 95.6
     },
     {
       "held_out_family": "Infiltration",
       "n": 36,
       "flagged_known_other": 0.0,
-      "flagged_unknown": 0.3611111111111111,
-      "missed_as_benign": 0.6388888888888888,
-      "benign_alert_rate": 0.002383124966683286,
-      "seconds": 53.4
+      "flagged_unknown": 0.19444444444444445,
+      "missed_as_benign": 0.8055555555555556,
+      "benign_alert_rate": 0.003731572586427045,
+      "seconds": 71.3
     },
     {
       "held_out_family": "PortScan",
       "n": 230833,
       "flagged_known_other": 0.0,
-      "flagged_unknown": 0.029094626851446717,
-      "missed_as_benign": 0.9709053731485533,
-      "benign_alert_rate": 0.00507354762643889,
-      "seconds": 38.9
+      "flagged_unknown": 0.000654152569173385,
+      "missed_as_benign": 0.9993458474308267,
+      "benign_alert_rate": 0.0023283920438639015,
+      "seconds": 56.2
     },
     {
       "held_out_family": "Web Injection",
       "n": 31,
-      "flagged_known_other": 0.5483870967741935,
-      "flagged_unknown": 0.03225806451612903,
+      "flagged_known_other": 0.1935483870967742,
+      "flagged_unknown": 0.3870967741935484,
       "missed_as_benign": 0.41935483870967744,
-      "benign_alert_rate": 0.0024897384520349065,
-      "seconds": 51.8
+      "benign_alert_rate": 0.004557776214894881,
+      "seconds": 103.0
     }
   ]
 }

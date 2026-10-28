@@ -5,7 +5,7 @@ import { Wordmark } from "./Logo";
 const links = [
   { href: "/#how", label: "How it works" },
   { href: "/method", label: "Method" },
-  { href: "/watchfloor", label: "Watchfloor" },
+  { href: "/console", label: "Console" },
 ];
 
 export function Nav() {

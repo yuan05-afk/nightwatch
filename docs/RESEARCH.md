@@ -46,3 +46,13 @@ Download index: https://intrusion-detection.distrinet-research.be/CNS2022/Datase
 - Isolation Forest (Liu, Ting, Zhou, ICDM 2008).
 - TreeSHAP (Lundberg et al., "From local explanations to global understanding with explainable AI for trees", Nature MI 2020).
 - LightGBM (Ke et al., NeurIPS 2017).
+
+## Positioning: organizations without a security team (added 2026-10-28)
+
+| Claim | Source |
+| --- | --- |
+| PH Data Privacy Act breach rule: notify the National Privacy Commission within 72 hours of knowledge (or reasonable belief) of a personal data breach; full report within 5 days. Notification covers the nature of the breach, personal data possibly involved, measures taken, and a contact person. | NPC Circular 16-03, https://privacy.gov.ph/wp-content/uploads/2022/01/sgd-npc-circular-16-03-personal-data-breach-management.pdf ; procedure clarified by NPC Advisory 2026-02 (https://www.bakermckenzie.com/en/insight/publications/2026/06/philippines-data-breach-notification-procedure-further-clarified) |
+| PhilHealth hit by Medusa ransomware on 22 Sept 2023; about 72 workstations affected; $300,000 ransom demanded; data leaked when unpaid; reported data of about 13 million members compromised. | PhilHealth public notice https://www.philhealth.gov.ph/ofclstmnts/2023/UN2023-10-03.pdf ; ACM case study https://dl.acm.org/doi/10.1145/3700706.3700711 (citing GMA News) |
+| PhilHealth's antivirus licence had expired on 15 Apr 2023, blamed on procurement processes. | HIPAA Journal, Oct 2023, https://www.hipaajournal.com/lack-of-antivirus-software-behind-philhealth-ransomware-attack/ |
+| GDPR Art. 33 likewise sets a 72-hour notification window to the supervisory authority. | Regulation (EU) 2016/679, Art. 33 |
+| MITRE ATT&CK technique IDs used on alerts (T1071, T1105, T1190, T1110, T1498, T1499, T1046). | https://attack.mitre.org/ |

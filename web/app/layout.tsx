@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, IBM_Plex_Mono, Newsreader } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["normal", "italic"],
-});
-
-const hanken = Hanken_Grotesk({
-  variable: "--font-hanken",
-  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -21,17 +15,14 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NIGHTWATCH",
+  title: "Nightwatch · Network intrusion detection",
   description:
-    "Network intrusion detection that says when it hasn't seen an attack before, and triages alerts for the analyst time you actually have.",
+    "Network intrusion detection that flags attacks it recognizes, marks traffic it can't explain for review, and puts the most dangerous alerts first.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${newsreader.variable} ${hanken.variable} ${plexMono.variable} h-full`}
-    >
+    <html lang="en" className={`${plexSans.variable} ${plexMono.variable} h-full`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

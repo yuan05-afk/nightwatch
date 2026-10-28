@@ -3,29 +3,29 @@
   "rows": [
     {
       "transform": "raw",
-      "benign_flag_rate_test": 0.0020789629643566034,
+      "benign_flag_rate_test": 0.001877735519245082,
       "family_flag_rate": {
         "Botnet": 0.0,
         "Brute Force": 0.0,
         "DDoS": 0.0,
-        "DoS": 0.0002621858139995572,
-        "Heartbleed": 0.9090909090909091,
-        "Infiltration": 0.2222222222222222,
+        "DoS": 0.0014565878555530955,
+        "Heartbleed": 1.0,
+        "Infiltration": 0.19444444444444445,
         "PortScan": 0.0,
         "Web Injection": 0.0
       }
     },
     {
       "transform": "signed_log",
-      "benign_flag_rate_test": 0.001984892241987526,
+      "benign_flag_rate_test": 0.0009559380825247691,
       "family_flag_rate": {
         "Botnet": 0.0,
         "Brute Force": 0.0,
         "DDoS": 0.0,
         "DoS": 0.0,
-        "Heartbleed": 0.2727272727272727,
-        "Infiltration": 0.1388888888888889,
-        "PortScan": 0.01635381422933463,
+        "Heartbleed": 0.0,
+        "Infiltration": 0.16666666666666666,
+        "PortScan": 0.003833940554426793,
         "Web Injection": 0.0
       }
     }

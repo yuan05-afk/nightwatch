@@ -1,0 +1,78 @@
+{
+  "strategy": "balanced",
+  "alpha": 0.05,
+  "rows": [
+    {
+      "held_out_family": "Botnet",
+      "n": 736,
+      "flagged_known_other": 0.0,
+      "flagged_unknown": 0.07336956521739131,
+      "missed_as_benign": 0.9266304347826086,
+      "benign_alert_rate": 0.004581674666958,
+      "seconds": 49.0
+    },
+    {
+      "held_out_family": "Brute Force",
+      "n": 7006,
+      "flagged_known_other": 0.009991435912075365,
+      "flagged_unknown": 0.0015700827861832715,
+      "missed_as_benign": 0.9884384813017414,
+      "benign_alert_rate": 0.004349518275487699,
+      "seconds": 62.1
+    },
+    {
+      "held_out_family": "DDoS",
+      "n": 95144,
+      "flagged_known_other": 0.0,
+      "flagged_unknown": 0.9999789792314807,
+      "missed_as_benign": 2.1020768519297065e-05,
+      "benign_alert_rate": 0.004025182140345367,
+      "seconds": 86.6
+    },
+    {
+      "held_out_family": "DoS",
+      "n": 171634,
+      "flagged_known_other": 0.0,
+      "flagged_unknown": 0.40600929885686987,
+      "missed_as_benign": 0.5939907011431301,
+      "benign_alert_rate": 0.0038886195571275427,
+      "seconds": 47.8
+    },
+    {
+      "held_out_family": "Heartbleed",
+      "n": 11,
+      "flagged_known_other": 0.0,
+      "flagged_unknown": 1.0,
+      "missed_as_benign": 0.0,
+      "benign_alert_rate": 0.004397315179613937,
+      "seconds": 95.6
+    },
+    {
+      "held_out_family": "Infiltration",
+      "n": 36,
+      "flagged_known_other": 0.0,
+      "flagged_unknown": 0.19444444444444445,
+      "missed_as_benign": 0.8055555555555556,
+      "benign_alert_rate": 0.003731572586427045,
+      "seconds": 71.3
+    },
+    {
+      "held_out_family": "PortScan",
+      "n": 230833,
+      "flagged_known_other": 0.0,
+      "flagged_unknown": 0.000654152569173385,
+      "missed_as_benign": 0.9993458474308267,
+      "benign_alert_rate": 0.0023283920438639015,
+      "seconds": 56.2
+    },
+    {
+      "held_out_family": "Web Injection",
+      "n": 31,
+      "flagged_known_other": 0.1935483870967742,
+      "flagged_unknown": 0.3870967741935484,
+      "missed_as_benign": 0.41935483870967744,
+      "benign_alert_rate": 0.004557776214894881,
+      "seconds": 103.0
+    }
+  ]
+}

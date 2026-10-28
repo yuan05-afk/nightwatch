@@ -48,21 +48,21 @@ export function Hero() {
 
       <div className="hero-copy relative z-10 mx-auto mt-[18vh] flex max-w-[860px] flex-col items-center px-5 text-center sm:mt-[20vh]">
         <h1 className="font-display text-[clamp(2.6rem,6.4vw,5rem)] text-ink">
-          The intrusion watch that knows what it hasn&rsquo;t seen
+          Your night-shift security analyst
         </h1>
         <p className="mt-6 max-w-[600px] text-[1.02rem] leading-relaxed text-ink-soft [text-wrap:pretty]">
-          Nightwatch names the attacks it recognizes, says <span className="text-unknown">Unknown</span> when
-          traffic matches nothing it was trained on, and ranks incidents for the analyst time you actually have.
+          Nightwatch watches your network traffic, explains attacks in plain language, tells you what to do first, and drafts the
+          72-hour breach report. Built for hospitals, schools, local governments and small businesses that have no security team.
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/watchfloor" className="btn btn-primary">
-            Enter the Watchfloor
+          <Link href="/console" className="btn btn-primary">
+            Open the console
             <span className="btn-glyph" aria-hidden>
               <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 6.5l5-5M2.5 1.5h4v4" stroke="currentColor" strokeWidth="1.2" /></svg>
             </span>
           </Link>
-          <Link href="/method" className="btn">
-            Read the method
+          <Link href="/#how" className="btn">
+            See how it works
           </Link>
         </div>
       </div>
