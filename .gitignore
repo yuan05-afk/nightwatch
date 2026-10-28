@@ -25,3 +25,6 @@ out/
 .playwright-mcp/
 .vercel/
 .DS_Store
+
+# deck renders (regenerate with deck/build.sh)
+deck/render/
