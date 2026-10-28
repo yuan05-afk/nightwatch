@@ -139,7 +139,6 @@ Testing on the corrected CSE-CIC-IDS2018 for drift, learning from analyst decisi
 - **Methods:** split conformal prediction (Vovk et al.; Angelopoulos and Bates, 2021), Isolation Forest (Liu, Ting and Zhou, 2008), TreeSHAP (Lundberg et al., 2020), LightGBM (Ke et al., 2017), evaluation pitfalls from Arp et al. (USENIX Security 2022).
 - **Open-source libraries:** all listed under Technology stack, used under their licences.
 - **MITRE ATT&CK®** is a registered trademark of The MITRE Corporation.
-- **Tools:** development was assisted by AI coding tools (Claude Code); every reported number comes from our own pipeline and is checked against its reports. Narration voiced with ElevenLabs.
 
 ---
 
