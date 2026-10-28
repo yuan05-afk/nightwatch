@@ -1,0 +1,62 @@
+{
+  "chosen_alpha_benign": 0.002,
+  "alpha_attacks": 0.05,
+  "rows": [
+    {
+      "alpha_benign": 0.05,
+      "benign_alert_rate": 0.04680018437861584,
+      "attack_flagged": 0.9999901075311366,
+      "attack_known_correct": 0.9377466934422823,
+      "attack_unknown": 0.06019567303411912,
+      "attack_missed": 9.892468863454253e-06
+    },
+    {
+      "alpha_benign": 0.02,
+      "benign_alert_rate": 0.017606903536745593,
+      "attack_flagged": 0.9999802150622731,
+      "attack_known_correct": 0.9377466934422823,
+      "attack_unknown": 0.06018578056525567,
+      "attack_missed": 1.9784937726908505e-05
+    },
+    {
+      "alpha_benign": 0.01,
+      "benign_alert_rate": 0.007742020450975043,
+      "attack_flagged": 0.9999604301245462,
+      "attack_known_correct": 0.9377466934422823,
+      "attack_unknown": 0.060165995627528765,
+      "attack_missed": 3.956987545381701e-05
+    },
+    {
+      "alpha_benign": 0.005,
+      "benign_alert_rate": 0.0036781652446309133,
+      "attack_flagged": 0.9985556995459357,
+      "attack_known_correct": 0.9377466934422823,
+      "attack_unknown": 0.05876126504891826,
+      "attack_missed": 0.0014443004540643208
+    },
+    {
+      "alpha_benign": 0.002,
+      "benign_alert_rate": 0.002351768059226927,
+      "attack_flagged": 0.997606022535044,
+      "attack_known_correct": 0.9377466934422823,
+      "attack_unknown": 0.05781158803802665,
+      "attack_missed": 0.002393977464955929
+    },
+    {
+      "alpha_benign": 0.001,
+      "benign_alert_rate": 0.0022984613165511164,
+      "attack_flagged": 0.9973587108134577,
+      "attack_known_correct": 0.9377466934422823,
+      "attack_unknown": 0.057564276316440295,
+      "attack_missed": 0.0026412891865422853
+    },
+    {
+      "alpha_benign": 0.0005,
+      "benign_alert_rate": 0.0022075262849276752,
+      "attack_flagged": 0.9966860229307428,
+      "attack_known_correct": 0.9377466934422823,
+      "attack_unknown": 0.0568915884337254,
+      "attack_missed": 0.0033139770692571747
+    }
+  ]
+}

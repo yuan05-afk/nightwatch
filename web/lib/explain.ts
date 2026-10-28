@@ -13,7 +13,7 @@ const RULES: Rule[] = [
   { test: /duration|tcp_flow_time|active|idle/, name: "Connection timing", benign: "Long-lived connections are normal for streaming, SSH sessions and keep-alives." },
   { test: /bwd.*(length|bytes|segment)|length_of_bwd/, name: "Bytes the server sent back", benign: "Small responses are normal for redirects, errors and health checks." },
   { test: /fwd.*(length|bytes|segment)|length_of_fwd/, name: "Bytes the client sent", benign: "Upload size depends entirely on the application." },
-  { test: /packet_length|packet_size|segment_size/, name: "Packet sizes", benign: "Packet size depends heavily on the application." },
+  { test: /packet_length|packet_size|segment_size|seg_size/, name: "Packet sizes", benign: "Packet size depends heavily on the application." },
   { test: /(total_fwd_packet|total_bwd_packets|subflow|act_data)/, name: "Packet count", benign: "Busy but legitimate sessions send many packets too." },
   { test: /header_length/, name: "Header overhead", benign: "Header size changes with TCP options, not intent." },
   { test: /icmp/, name: "ICMP details", benign: "Ping and path-MTU discovery use ICMP routinely." },

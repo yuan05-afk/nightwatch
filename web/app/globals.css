@@ -76,6 +76,7 @@ body {
   border-radius: 6px;
 }
 
+@layer components {
 /* Glass surface used by nav, panels, cards. */
 .glass {
   background: var(--glass);
@@ -143,6 +144,8 @@ body {
   border-radius: 999px;
   border: 1px solid currentColor;
   opacity: 0.7;
+}
+
 }
 
 /* Film grain over aurora so gradients don't band. */
@@ -235,4 +238,18 @@ body {
 @keyframes copy-rise {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: none; }
+}
+
+.auth-sky {
+  min-height: calc(100svh - 80px);
+  background:
+    radial-gradient(60% 40% at 50% 100%, color-mix(in oklab, var(--teal) 28%, transparent), transparent 70%),
+    radial-gradient(50% 40% at 50% 0%, color-mix(in oklab, var(--teal-deep) 30%, transparent), transparent 70%),
+    var(--night);
+}
+
+.watch-sky {
+  background:
+    radial-gradient(70% 30% at 50% 0%, color-mix(in oklab, var(--teal-deep) 26%, transparent), transparent 70%),
+    var(--night);
 }

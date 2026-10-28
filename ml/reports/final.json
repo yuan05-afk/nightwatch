@@ -1,6 +1,7 @@
 {
   "strategy": "balanced",
   "alpha": 0.05,
+  "alpha_benign": 0.002,
   "anomaly_benign_rate": 0.002,
   "classifier": {
     "accuracy": 0.9984118896370442,
@@ -119,19 +120,19 @@
     ]
   },
   "verdicts": {
-    "benign_alert_rate": 0.04680018437861584,
-    "benign_unknown_rate": 0.046797048687870206,
-    "attack_flagged": 0.9999901075311366,
+    "benign_alert_rate": 0.002351768059226927,
+    "benign_unknown_rate": 0.002348632368481291,
+    "attack_flagged": 0.997606022535044,
     "attack_known_correct": 0.9377466934422823,
-    "attack_unknown": 0.06019567303411912,
-    "attack_missed": 9.892468863454253e-06,
+    "attack_unknown": 0.05781158803802665,
+    "attack_missed": 0.002393977464955929,
     "per_class": [
       {
         "class": "BENIGN",
         "n": 318909,
         "known": 3.1356907456359025e-06,
-        "unknown": 0.046797048687870206,
-        "suppressed": 0.9531998156213841
+        "unknown": 0.002348632368481291,
+        "suppressed": 0.9976482319407731
       },
       {
         "class": "Botnet",
@@ -144,8 +145,8 @@
         "class": "DDoS",
         "n": 19029,
         "known": 0.9393557202165116,
-        "unknown": 0.06064427978348836,
-        "suppressed": 0.0
+        "unknown": 0.060223868831783066,
+        "suppressed": 0.0004204109517052919
       },
       {
         "class": "DoS GoldenEye",
@@ -165,15 +166,15 @@
         "class": "DoS Slowhttptest",
         "n": 348,
         "known": 0.48563218390804597,
-        "unknown": 0.514367816091954,
-        "suppressed": 0.0
+        "unknown": 0.21551724137931033,
+        "suppressed": 0.2988505747126437
       },
       {
         "class": "DoS Slowloris",
         "n": 772,
         "known": 0.7616580310880829,
-        "unknown": 0.23834196891191708,
-        "suppressed": 0.0
+        "unknown": 0.17487046632124353,
+        "suppressed": 0.06347150259067358
       },
       {
         "class": "FTP-Patator",
@@ -200,15 +201,15 @@
         "class": "PortScan",
         "n": 46167,
         "known": 0.938115970281803,
-        "unknown": 0.06186236922477094,
-        "suppressed": 2.1660493426040247e-05
+        "unknown": 0.060692702579764765,
+        "suppressed": 0.0011913271384322134
       },
       {
         "class": "SSH-Patator",
         "n": 592,
         "known": 0.8851351351351351,
-        "unknown": 0.11486486486486487,
-        "suppressed": 0.0
+        "unknown": 0.07094594594594594,
+        "suppressed": 0.04391891891891892
       },
       {
         "class": "Web Brute Force",
@@ -234,7 +235,7 @@
     ]
   },
   "conformal_coverage": {
-    "BENIGN": 0.9551376725021872,
+    "BENIGN": 0.9997271949051296,
     "Botnet": 0.9659863945578231,
     "DDoS": 0.9393557202165116,
     "DoS GoldenEye": 0.976867151354924,
@@ -251,7 +252,7 @@
     "Web XSS": 0.75
   },
   "conformal_thresholds": {
-    "BENIGN": 2.2514995981604002e-05,
+    "BENIGN": 0.06085238675973903,
     "Botnet": 0.00011833665486848943,
     "DDoS": 2.9461546856568432e-06,
     "DoS GoldenEye": 0.00012021060888489643,
@@ -284,20 +285,20 @@
     "Web SQL Injection": true,
     "Web XSS": true
   },
-  "mean_set_size": 0.9514495376146439,
-  "python_batch_latency_us_per_flow": 24.089445613767428,
+  "mean_set_size": 0.9858808179125516,
+  "python_batch_latency_us_per_flow": 24.245622577351384,
   "base_rate": [
     {
       "flows_per_day": 100000,
-      "false_alerts_per_day": 4680
+      "false_alerts_per_day": 235
     },
     {
       "flows_per_day": 1000000,
-      "false_alerts_per_day": 46800
+      "false_alerts_per_day": 2352
     },
     {
       "flows_per_day": 10000000,
-      "false_alerts_per_day": 468002
+      "false_alerts_per_day": 23518
     }
   ]
 }

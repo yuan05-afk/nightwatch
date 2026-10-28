@@ -44,6 +44,16 @@ export async function tick(shiftId: string, userId: string): Promise<TickResult 
 
   if (flows.length === 0) return { scored: 0, cursor: shift.cursor, done: true, newIncidents: 0 };
 
+  // Claim the batch: only the tick that still sees the old cursor may score it.
+  // Two tabs (or React's dev double-effects) would otherwise count the same flows twice.
+  const cursor = flows[flows.length - 1].seq;
+  const claimed = await db
+    .update(schema.shifts)
+    .set({ cursor })
+    .where(and(eq(schema.shifts.id, shiftId), eq(schema.shifts.cursor, shift.cursor)))
+    .returning({ id: schema.shifts.id });
+  if (claimed.length === 0) return { scored: 0, cursor: shift.cursor, done: false, newIncidents: 0 };
+
   const groups = new Map<string, Pending>();
   const stats = { suppressed: 0, known: 0, unknown: 0, attacksSuppressed: 0, benignAlerts: 0, micros: 0 };
 
@@ -89,7 +99,6 @@ export async function tick(shiftId: string, userId: string): Promise<TickResult 
     }
   }
 
-  const cursor = flows[flows.length - 1].seq;
   const rows = [...groups.values()].map((g) => ({
     shiftId,
     ...g,
@@ -117,7 +126,6 @@ export async function tick(shiftId: string, userId: string): Promise<TickResult 
     );
   }
   ops.push(
-    db.update(schema.shifts).set({ cursor }).where(eq(schema.shifts.id, shiftId)),
     db
       .insert(schema.shiftStats)
       .values({
