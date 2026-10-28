@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SCENARIOS } from "@/lib/scenarios";
 import { familyInfo, SEVERITY_ORDER, STATUS_LABEL, type Severity } from "@/lib/security";
@@ -31,7 +32,8 @@ type Report = {
 const isInternal = (ip: string) => /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(ip);
 const dt = (s: string) => new Date(s).toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" });
 
-export function IncidentReport({ sessionId }: { sessionId: string }) {
+export function IncidentReport() {
+  const { id: sessionId } = useParams<{ id: string }>();
   const [r, setR] = useState<Report | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -154,7 +156,7 @@ export function IncidentReport({ sessionId }: { sessionId: string }) {
               : "No confirmed incidents."}
           </Npc>
           <Npc k="Personal data possibly involved" todo>
-            To be completed by the Data Protection Officer. Nightwatch analyses network traffic patterns, not the contents of data,
+            To be completed by the Data Protection Officer. Nightwatch analyzes network traffic patterns, not the contents of data,
             so it cannot tell which personal records the affected systems hold.
           </Npc>
           <Npc k="Measures taken to address the breach">

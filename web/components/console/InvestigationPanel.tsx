@@ -73,7 +73,7 @@ export function InvestigationPanel({ incidentId, onClose, onDecided }: { inciden
               <h2 className="text-[1.25rem] font-semibold text-ink">{ev ? (ev.incident.verdict === "unknown" ? "Unrecognized activity" : ev.incident.predicted) : "Loading…"}</h2>
             </div>
           </div>
-          <button onClick={onClose} className="app-btn h-8 w-8 p-0" aria-label="Close investigation"><X size={15} /></button>
+          <button onClick={onClose} className="app-btn h-8 px-2.5 text-[0.8rem]" aria-label="Close investigation"><X size={14} aria-hidden /> Close</button>
         </header>
 
         {error && <p role="alert" className="px-6 pt-4 text-attack">{error}</p>}
