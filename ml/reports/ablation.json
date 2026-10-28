@@ -1,0 +1,714 @@
+{
+  "selection_rule": "max calibration macro-F1 over attack classes",
+  "chosen": "balanced",
+  "rows": [
+    {
+      "strategy": "none",
+      "fit_seconds": 78.0,
+      "calibration": {
+        "accuracy": 0.9989856973806707,
+        "macro_f1": 0.8796534095965485,
+        "macro_f1_attacks": 0.871103914665287,
+        "mean_pr_auc_attacks": 0.9954625888923452,
+        "benign_fpr": 0.00045467515811720583,
+        "attack_recall_any": 0.9973091686122433,
+        "n": 419993,
+        "per_class": [
+          {
+            "class": "BENIGN",
+            "precision": 0.999147431637809,
+            "recall": 0.9995453248418827,
+            "f1": 0.9993463386342083,
+            "support": 318909
+          },
+          {
+            "class": "Botnet",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 147
+          },
+          {
+            "class": "DDoS",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 19029
+          },
+          {
+            "class": "DoS GoldenEye",
+            "precision": 0.9993355481727575,
+            "recall": 0.9933949801849405,
+            "f1": 0.9963564094070885,
+            "support": 1514
+          },
+          {
+            "class": "DoS Hulk",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 31693
+          },
+          {
+            "class": "DoS Slowhttptest",
+            "precision": 0.9,
+            "recall": 0.23275862068965517,
+            "f1": 0.3698630136986301,
+            "support": 348
+          },
+          {
+            "class": "DoS Slowloris",
+            "precision": 0.9948453608247423,
+            "recall": 1.0,
+            "f1": 0.9974160206718347,
+            "support": 772
+          },
+          {
+            "class": "FTP-Patator",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 795
+          },
+          {
+            "class": "Heartbleed",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          {
+            "class": "Infiltration",
+            "precision": 1.0,
+            "recall": 0.7142857142857143,
+            "f1": 0.8333333333333334,
+            "support": 7
+          },
+          {
+            "class": "PortScan",
+            "precision": 0.9969766336975769,
+            "recall": 1.0,
+            "f1": 0.9984860282031317,
+            "support": 46166
+          },
+          {
+            "class": "SSH-Patator",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 592
+          },
+          {
+            "class": "Web Brute Force",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 14
+          },
+          {
+            "class": "Web SQL Injection",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          {
+            "class": "Web XSS",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          }
+        ]
+      },
+      "test": {
+        "accuracy": 0.9982237926075487,
+        "macro_f1": 0.8830273649260065,
+        "macro_f1_attacks": 0.8747455710376185,
+        "mean_pr_auc_attacks": 0.9322496121429229,
+        "benign_fpr": 6.898519640398985e-05,
+        "attack_recall_any": 0.99372817474057,
+        "n": 419996,
+        "per_class": [
+          {
+            "class": "BENIGN",
+            "precision": 0.9980157798704936,
+            "recall": 0.999931014803596,
+            "f1": 0.9989724793634385,
+            "support": 318909
+          },
+          {
+            "class": "Botnet",
+            "precision": 0.9865771812080537,
+            "recall": 1.0,
+            "f1": 0.9932432432432432,
+            "support": 147
+          },
+          {
+            "class": "DDoS",
+            "precision": 1.0,
+            "recall": 0.9988964212517736,
+            "f1": 0.9994479059862765,
+            "support": 19029
+          },
+          {
+            "class": "DoS GoldenEye",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1513
+          },
+          {
+            "class": "DoS Hulk",
+            "precision": 0.9994638915168716,
+            "recall": 0.9999684482867419,
+            "f1": 0.999716106239354,
+            "support": 31694
+          },
+          {
+            "class": "DoS Slowhttptest",
+            "precision": 0.8347107438016529,
+            "recall": 0.29022988505747127,
+            "f1": 0.43070362473347545,
+            "support": 348
+          },
+          {
+            "class": "DoS Slowloris",
+            "precision": 0.8893360160965795,
+            "recall": 0.572538860103627,
+            "f1": 0.6966115051221434,
+            "support": 772
+          },
+          {
+            "class": "FTP-Patator",
+            "precision": 0.9987421383647799,
+            "recall": 1.0,
+            "f1": 0.9993706733794839,
+            "support": 794
+          },
+          {
+            "class": "Heartbleed",
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "support": 2
+          },
+          {
+            "class": "Infiltration",
+            "precision": 1.0,
+            "recall": 0.7142857142857143,
+            "f1": 0.8333333333333334,
+            "support": 7
+          },
+          {
+            "class": "PortScan",
+            "precision": 0.999631212443326,
+            "recall": 0.9981155370719345,
+            "f1": 0.9988727997919015,
+            "support": 46167
+          },
+          {
+            "class": "SSH-Patator",
+            "precision": 1.0,
+            "recall": 0.9442567567567568,
+            "f1": 0.9713292788879235,
+            "support": 592
+          },
+          {
+            "class": "Web Brute Force",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 15
+          },
+          {
+            "class": "Web SQL Injection",
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "support": 3
+          },
+          {
+            "class": "Web XSS",
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "support": 4
+          }
+        ]
+      }
+    },
+    {
+      "strategy": "balanced",
+      "fit_seconds": 79.6,
+      "calibration": {
+        "accuracy": 0.9994690387696937,
+        "macro_f1": 0.9524703873471615,
+        "macro_f1_attacks": 0.9490987163163279,
+        "mean_pr_auc_attacks": 0.9666206922003732,
+        "benign_fpr": 0.0006522236750922677,
+        "attack_recall_any": 1.0,
+        "n": 419993,
+        "per_class": [
+          {
+            "class": "BENIGN",
+            "precision": 1.0,
+            "recall": 0.9993477763249077,
+            "f1": 0.9996737817788304,
+            "support": 318909
+          },
+          {
+            "class": "Botnet",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 147
+          },
+          {
+            "class": "DDoS",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 19029
+          },
+          {
+            "class": "DoS GoldenEye",
+            "precision": 1.0,
+            "recall": 0.9900924702774109,
+            "f1": 0.9950215731828742,
+            "support": 1514
+          },
+          {
+            "class": "DoS Hulk",
+            "precision": 0.9996215108027126,
+            "recall": 1.0,
+            "f1": 0.9998107195810594,
+            "support": 31693
+          },
+          {
+            "class": "DoS Slowhttptest",
+            "precision": 0.9830508474576272,
+            "recall": 1.0,
+            "f1": 0.9914529914529915,
+            "support": 348
+          },
+          {
+            "class": "DoS Slowloris",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 772
+          },
+          {
+            "class": "FTP-Patator",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 795
+          },
+          {
+            "class": "Heartbleed",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          {
+            "class": "Infiltration",
+            "precision": 0.875,
+            "recall": 1.0,
+            "f1": 0.9333333333333333,
+            "support": 7
+          },
+          {
+            "class": "PortScan",
+            "precision": 0.9957509220714794,
+            "recall": 1.0,
+            "f1": 0.9978709377600536,
+            "support": 46166
+          },
+          {
+            "class": "SSH-Patator",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 592
+          },
+          {
+            "class": "Web Brute Force",
+            "precision": 0.8235294117647058,
+            "recall": 1.0,
+            "f1": 0.9032258064516129,
+            "support": 14
+          },
+          {
+            "class": "Web SQL Injection",
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "support": 2
+          },
+          {
+            "class": "Web XSS",
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "support": 3
+          }
+        ]
+      },
+      "test": {
+        "accuracy": 0.9984118896370442,
+        "macro_f1": 0.8664059053062927,
+        "macro_f1_attacks": 0.8569067904753725,
+        "mean_pr_auc_attacks": 0.9048336542285405,
+        "benign_fpr": 0.00016305591877306693,
+        "attack_recall_any": 0.9966860229307428,
+        "n": 419996,
+        "per_class": [
+          {
+            "class": "BENIGN",
+            "precision": 0.9989504749492468,
+            "recall": 0.9998369440812269,
+            "f1": 0.9993935129391742,
+            "support": 318909
+          },
+          {
+            "class": "Botnet",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 147
+          },
+          {
+            "class": "DDoS",
+            "precision": 1.0,
+            "recall": 0.9988964212517736,
+            "f1": 0.9994479059862765,
+            "support": 19029
+          },
+          {
+            "class": "DoS GoldenEye",
+            "precision": 1.0,
+            "recall": 0.9960343688037012,
+            "f1": 0.9980132450331126,
+            "support": 1513
+          },
+          {
+            "class": "DoS Hulk",
+            "precision": 0.9994638915168716,
+            "recall": 0.9999684482867419,
+            "f1": 0.999716106239354,
+            "support": 31694
+          },
+          {
+            "class": "DoS Slowhttptest",
+            "precision": 0.4497354497354497,
+            "recall": 0.4885057471264368,
+            "f1": 0.46831955922865015,
+            "support": 348
+          },
+          {
+            "class": "DoS Slowloris",
+            "precision": 0.9072356215213359,
+            "recall": 0.633419689119171,
+            "f1": 0.7459954233409611,
+            "support": 772
+          },
+          {
+            "class": "FTP-Patator",
+            "precision": 0.9962311557788944,
+            "recall": 0.9987405541561712,
+            "f1": 0.9974842767295597,
+            "support": 794
+          },
+          {
+            "class": "Heartbleed",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          {
+            "class": "Infiltration",
+            "precision": 0.6,
+            "recall": 0.8571428571428571,
+            "f1": 0.7058823529411765,
+            "support": 7
+          },
+          {
+            "class": "PortScan",
+            "precision": 0.9991326596990329,
+            "recall": 0.9980722160850825,
+            "f1": 0.9986021563634393,
+            "support": 46167
+          },
+          {
+            "class": "SSH-Patator",
+            "precision": 1.0,
+            "recall": 0.9442567567567568,
+            "f1": 0.9713292788879235,
+            "support": 592
+          },
+          {
+            "class": "Web Brute Force",
+            "precision": 0.9333333333333333,
+            "recall": 0.9333333333333333,
+            "f1": 0.9333333333333333,
+            "support": 15
+          },
+          {
+            "class": "Web SQL Injection",
+            "precision": 0.2727272727272727,
+            "recall": 1.0,
+            "f1": 0.42857142857142855,
+            "support": 3
+          },
+          {
+            "class": "Web XSS",
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "support": 4
+          }
+        ]
+      }
+    },
+    {
+      "strategy": "smote",
+      "fit_seconds": 94.1,
+      "calibration": {
+        "accuracy": 0.9990880800394293,
+        "macro_f1": 0.8826195656022197,
+        "macro_f1_attacks": 0.8742516008877773,
+        "mean_pr_auc_attacks": 0.952032703964461,
+        "benign_fpr": 0.0003292475282917698,
+        "attack_recall_any": 0.9995943967393455,
+        "n": 419993,
+        "per_class": [
+          {
+            "class": "BENIGN",
+            "precision": 0.999871410873622,
+            "recall": 0.9996707524717082,
+            "f1": 0.9997710716044117,
+            "support": 318909
+          },
+          {
+            "class": "Botnet",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 147
+          },
+          {
+            "class": "DDoS",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 19029
+          },
+          {
+            "class": "DoS GoldenEye",
+            "precision": 0.9986737400530504,
+            "recall": 0.9947159841479525,
+            "f1": 0.9966909331568498,
+            "support": 1514
+          },
+          {
+            "class": "DoS Hulk",
+            "precision": 0.999936896573484,
+            "recall": 0.9999684472911999,
+            "f1": 0.9999526716834682,
+            "support": 31693
+          },
+          {
+            "class": "DoS Slowhttptest",
+            "precision": 0.9529411764705882,
+            "recall": 0.23275862068965517,
+            "f1": 0.3741339491916859,
+            "support": 348
+          },
+          {
+            "class": "DoS Slowloris",
+            "precision": 0.769690927218345,
+            "recall": 1.0,
+            "f1": 0.8698591549295774,
+            "support": 772
+          },
+          {
+            "class": "FTP-Patator",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 795
+          },
+          {
+            "class": "Heartbleed",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 2
+          },
+          {
+            "class": "Infiltration",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 7
+          },
+          {
+            "class": "PortScan",
+            "precision": 0.9977738874840606,
+            "recall": 1.0,
+            "f1": 0.9988857034673013,
+            "support": 46166
+          },
+          {
+            "class": "SSH-Patator",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 592
+          },
+          {
+            "class": "Web Brute Force",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 14
+          },
+          {
+            "class": "Web SQL Injection",
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          {
+            "class": "Web XSS",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 3
+          }
+        ]
+      },
+      "test": {
+        "accuracy": 0.998364270135906,
+        "macro_f1": 0.8508401340111951,
+        "macro_f1_attacks": 0.840244272143169,
+        "mean_pr_auc_attacks": 0.8631344553315257,
+        "benign_fpr": 6.584950565835395e-05,
+        "attack_recall_any": 0.9950438730994094,
+        "n": 419996,
+        "per_class": [
+          {
+            "class": "BENIGN",
+            "precision": 0.9984313799160272,
+            "recall": 0.9999341504943416,
+            "f1": 0.99918220016356,
+            "support": 318909
+          },
+          {
+            "class": "Botnet",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 147
+          },
+          {
+            "class": "DDoS",
+            "precision": 1.0,
+            "recall": 0.9988964212517736,
+            "f1": 0.9994479059862765,
+            "support": 19029
+          },
+          {
+            "class": "DoS GoldenEye",
+            "precision": 0.9921311475409836,
+            "recall": 1.0,
+            "f1": 0.9960500329163924,
+            "support": 1513
+          },
+          {
+            "class": "DoS Hulk",
+            "precision": 0.9994638577015265,
+            "recall": 0.9999053448602259,
+            "f1": 0.9996845525377749,
+            "support": 31694
+          },
+          {
+            "class": "DoS Slowhttptest",
+            "precision": 0.5146443514644351,
+            "recall": 0.35344827586206895,
+            "f1": 0.4190800681431005,
+            "support": 348
+          },
+          {
+            "class": "DoS Slowloris",
+            "precision": 0.9696312364425163,
+            "recall": 0.5790155440414507,
+            "f1": 0.7250608272506083,
+            "support": 772
+          },
+          {
+            "class": "FTP-Patator",
+            "precision": 0.9962358845671268,
+            "recall": 1.0,
+            "f1": 0.9981143934632307,
+            "support": 794
+          },
+          {
+            "class": "Heartbleed",
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1": 0.5,
+            "support": 2
+          },
+          {
+            "class": "Infiltration",
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 7
+          },
+          {
+            "class": "PortScan",
+            "precision": 0.9995878435540901,
+            "recall": 0.9981155370719345,
+            "f1": 0.9988511477684088,
+            "support": 46167
+          },
+          {
+            "class": "SSH-Patator",
+            "precision": 1.0,
+            "recall": 0.9983108108108109,
+            "f1": 0.9991546914623838,
+            "support": 592
+          },
+          {
+            "class": "Web Brute Force",
+            "precision": 0.8823529411764706,
+            "recall": 1.0,
+            "f1": 0.9375,
+            "support": 15
+          },
+          {
+            "class": "Web SQL Injection",
+            "precision": 0.3333333333333333,
+            "recall": 0.3333333333333333,
+            "f1": 0.3333333333333333,
+            "support": 3
+          },
+          {
+            "class": "Web XSS",
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "support": 4
+          }
+        ]
+      }
+    }
+  ]
+}
