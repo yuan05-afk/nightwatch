@@ -5,7 +5,8 @@ A 2:22 product demo for DataNova 2026, made with the same method as the GroundTr
 
 | Item | Value |
 | --- | --- |
-| Output | `out/nightwatch-demo.mp4`, 1920x1080, 30 fps, H.264 CRF 16, AAC; `out/nightwatch-demo.srt` |
+| Output | `out/nightwatch-demo.mp4` (142.4 s, 1920x1080, 30 fps, H.264 CRF 16, AAC 48 kHz), `out/nightwatch-demo.srt` (45 cues), `out/thumbnail.png` |
+| Measured | -17.0 LUFS integrated, true peak -1.4 dBFS, LRA 3.2 LU; no silence over 2 s; only freeze is the 4 s end-card hold |
 | Narration | ElevenLabs, voice "Marcus – Clear Canadian Professional" (`6WjhCXzqp2hnSqFtrG8P`), `eleven_multilingual_v2`, one take (take B of two; take A dropped words) |
 | Footage | Real recordings of the live site, https://nightwatch-olive.vercel.app, signed in with the judge demo account |
 | Motion graphics | HyperFrames (HTML + GSAP): wordmark reveal, "what we built", end card |

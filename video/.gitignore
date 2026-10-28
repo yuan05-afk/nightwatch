@@ -12,3 +12,4 @@ hf/*/renders/
 out/*.mp4
 out/stills/
 out/render.log
+!out/thumbnail.png
