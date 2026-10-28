@@ -1,4 +1,4 @@
-# TANOD research log
+# NIGHTWATCH research log
 
 Every claim used on the site, in the deck, or on Devpost must trace to a row here. Snapshot date: 2026-10-28.
 

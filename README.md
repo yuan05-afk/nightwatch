@@ -1,8 +1,8 @@
-# TANOD
+# NIGHTWATCH
 
 **The intrusion watch that knows what it hasn't seen.**
 
-TANOD (Filipino for the barangay night watchman) is a network intrusion detection and alert triage system built for DataNova 2026, track DN-CY-01 (Network Intrusion Detection with Imbalanced Threat Data).
+NIGHTWATCH is a network intrusion detection and alert triage system built for DataNova 2026, track DN-CY-01 (Network Intrusion Detection with Imbalanced Threat Data).
 
 - **Detect:** imbalance-aware multi-class detector trained on the corrected CIC-IDS2017, evaluated on later days than it was trained on.
 - **Doubt:** conformal prediction sets and an anomaly layer turn "the model has never seen this" into an explicit *Unknown: investigate* verdict instead of a silent "benign".

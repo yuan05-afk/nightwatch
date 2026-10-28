@@ -1,7 +1,7 @@
-# TANOD: DataNova 2026 winning plan (Cybersecurity & Fraud Detection track)
+# NIGHTWATCH: DataNova 2026 winning plan (Cybersecurity & Fraud Detection track)
 
-> **TANOD** (Filipino: the barangay night watchman) — *the intrusion watch that knows what it hasn't seen.*
-> Folder: `C:\Users\Yuan\documents\ymir\tanod\` (sits beside `groundtruth/`, which won LovHack S3 1st place with the same "honest triage" DNA).
+> **NIGHTWATCH** (English for *tanod*, the barangay night watchman) — *the intrusion watch that knows what it hasn't seen.*
+> Folder: `C:\Users\Yuan\documents\ymir\nightwatch\` (sits beside `groundtruth/`, which won LovHack S3 1st place with the same "honest triage" DNA).
 
 ## Context
 
@@ -18,7 +18,7 @@ Track problem we answer: **DN-CY-01 "Network Intrusion Detection with Imbalanced
 - PH context: ransomware (Medusa, Qilin) has hit Philippine hospitals and public services (CYFIRMA PH threat landscape 2025–26). Small orgs, LGUs, and hospitals have no 24/7 SOC: one analyst, one night shift.
 
 ### The winning idea: Detect · Doubt · Decide
-Most entries will train XGBoost on CIC-IDS2017, show "99.9% accuracy", and stop. TANOD is built around three things they won't have:
+Most entries will train XGBoost on CIC-IDS2017, show "99.9% accuracy", and stop. NIGHTWATCH is built around three things they won't have:
 
 1. **Detect (imbalance done right).** A LightGBM multi-class detector on the **corrected** CIC-IDS2017, using a **day-based temporal split** (train on earlier days, test on later ones) rather than a random split. An ablation compares no reweighting, class-balanced weights, SMOTE, and focal loss. We report per-class recall, macro-F1, and PR-AUC; accuracy is never the headline.
 2. **Doubt (evolving attacks).** An open-set layer: **split-conformal prediction sets** (calibrated coverage, e.g. 95%) plus an Isolation Forest trained on benign traffic.
@@ -29,7 +29,7 @@ Most entries will train XGBoost on CIC-IDS2017, show "99.9% accuracy", and stop.
 
 Plus two signature artifacts for Rigor and Innovation:
 - **The Accuracy Illusion panel:** the same model on a random split (~99.9%), a temporal split, an unseen family, and cross-year. Side by side, with real numbers.
-- **The Pitfall Scorecard:** each of Arp et al.'s 10 pitfalls and exactly how TANOD avoids or discloses it, plus a base-rate check ("at 1M flows/day this FPR means N false alerts per day").
+- **The Pitfall Scorecard:** each of Arp et al.'s 10 pitfalls and exactly how NIGHTWATCH avoids or discloses it, plus a base-rate check ("at 1M flows/day this FPR means N false alerts per day").
 
 ## Architecture
 
@@ -68,12 +68,12 @@ The reference look: near-black canvas, aurora glow, elegant serif headlines, gla
 - **Semantic colors:** mint = known attack handled; warm amber-gold = **Unknown: investigate** (the aurora's gold end, so it stays on-palette); soft coral = confirmed attack; slate = suppressed. All checked for WCAG AA on the dark canvas.
 - **Type:** a light editorial serif for display headings (Instrument Serif or Newsreader, matching the reference's "Meet the #1 Team" style). A small, airy sans for UI (Geist or Inter). IBM Plex Mono for IPs, flow IDs, and scores (carried over from GroundTruth).
 - **Primary button (replacing the rainbow one):** a glass pill with a thin **mint hairline border**, a soft inner mint glow, and near-white text. On hover, a slow single-tone light sweep crosses it and the glow intensifies. The secondary button is the same pill with no glow. Both keep the reference's small "↗"-style glyph.
-- **Motifs, mapped to TANOD content (no fake clients or testimonials, since the rules forbid misleading claims):**
-  - Reference hero (aurora horizon + floating glass orb icons + thin orbit lines) → **TANOD hero**. Orbs are attack families (DoS, PortScan, Bot, Web, Infiltration) plus one gold **"?" orb for Unknown**. Headline: "The intrusion watch that knows what it hasn't seen."
+- **Motifs, mapped to NIGHTWATCH content (no fake clients or testimonials, since the rules forbid misleading claims):**
+  - Reference hero (aurora horizon + floating glass orb icons + thin orbit lines) → **NIGHTWATCH hero**. Orbs are attack families (DoS, PortScan, Bot, Web, Infiltration) plus one gold **"?" orb for Unknown**. Headline: "The intrusion watch that knows what it hasn't seen."
   - "How it works" stepper + glowing isometric panel → **Detect · Doubt · Decide · Triage · Learn**. The isometric panel animates to the active step (CSS 3D or SVG, not WebGL, to keep it fast).
   - "Our Services" thin-border grid → **8 capability tiles** (imbalance-aware detection, conformal doubt, zero-day test, capacity triage, SHAP evidence, drift monitor, RBAC + audit, Try-it upload).
-  - Avatar orbit with a center glow → **attack-family orbit** around the TANOD mark, glowing gold when Unknown is active.
-  - 3D pillars "Our Approach" → **Pitfall Scorecard pillars** (one per Arp et al. pitfall; hover shows how TANOD handles it).
+  - Avatar orbit with a center glow → **attack-family orbit** around the NIGHTWATCH mark, glowing gold when Unknown is active.
+  - 3D pillars "Our Approach" → **Pitfall Scorecard pillars** (one per Arp et al. pitfall; hover shows how NIGHTWATCH handles it).
   - "Our Impact" stat grid → **real numbers from `ml/reports`** (macro-F1, minority recall, zero-day flagged %, attacks caught per analyst-hour).
   - "Unified Security Intelligence" node graph → **incident graph** (hosts and flows; the selected incident lights up).
   - FAQ accordion → **judge questions** ("Does it auto-block?", "What data?", "How do you handle unseen attacks?").
@@ -83,17 +83,17 @@ The reference look: near-black canvas, aurora glow, elegant serif headlines, gla
 - **Responsive:** the reference's single-column flow at 390px; isometric art scales down or swaps to a flat version on mobile.
 
 ### Secure by design (it's a security project, so judges will poke it)
-Server-side authorization on every mutation and role check for lead routes. zod input validation. Strict security headers (CSP, HSTS, frame-ancestors, referrer policy) in `next.config`. Postgres-backed rate limit on upload and auth-adjacent routes. Append-only audit log. No secrets client-side. `npm audit` + `pip-audit` clean. **STRIDE threat model of TANOD itself** in `docs/THREAT_MODEL.md` and on one slide. Responsible AI: human-in-the-loop, **no auto-blocking**, uncertainty shown, dataset limits disclosed. A judge demo account goes in the submission notes.
+Server-side authorization on every mutation and role check for lead routes. zod input validation. Strict security headers (CSP, HSTS, frame-ancestors, referrer policy) in `next.config`. Postgres-backed rate limit on upload and auth-adjacent routes. Append-only audit log. No secrets client-side. `npm audit` + `pip-audit` clean. **STRIDE threat model of NIGHTWATCH itself** in `docs/THREAT_MODEL.md` and on one slide. Responsible AI: human-in-the-loop, **no auto-blocking**, uncertainty shown, dataset limits disclosed. A judge demo account goes in the submission notes.
 
 ## Folder layout
 ```
-tanod/
+nightwatch/
   README.md  DEVPOST.md  .gitignore (data/, .env*)
   docs/  PRD.md  METHOD.md  THREAT_MODEL.md  RESEARCH.md (all citations + links)
-  ml/    pyproject.toml  src/tanod_ml/{data,split,train,imbalance,conformal,openset,evaluate,export}.py
+  ml/    pyproject.toml  src/nightwatch_ml/{data,split,train,imbalance,conformal,openset,evaluate,export}.py
          tests/  data/{raw,interim,out}/  reports/*.json
   web/   Next.js app  app/  lib/scoring/  lib/db/schema.ts  drizzle/  scripts/load-replay.ts  tests/ (vitest + playwright)
-  deck/  build_deck.(py|js)  TANOD-DataNova2026.pptx  assets/
+  deck/  build_deck.(py|js)  NIGHTWATCH-DataNova2026.pptx  assets/
   video/ (optional Remotion + ElevenLabs, per avp-video-playbook skill)
 ```
 
@@ -101,7 +101,7 @@ tanod/
 
 | Day | Work | Done when |
 |---|---|---|
-| Oct 28–29 | **You:** register on Unstop (₹100) and select DN-CY-01 before the **Oct 30 problem-statement deadline**; join on Devpost; resolve the team rule. **Me:** scaffold `tanod/`, git init, download corrected 2017, EDA, label policy ("Attempted" → Benign per dataset authors) | data loads; class counts recorded in `docs/METHOD.md` |
+| Oct 28–29 | **You:** register on Unstop (₹100) and select DN-CY-01 before the **Oct 30 problem-statement deadline**; join on Devpost; resolve the team rule. **Me:** scaffold `nightwatch/`, git init, download corrected 2017, EDA, label policy ("Attempted" → Benign per dataset authors) | data loads; class counts recorded in `docs/METHOD.md` |
 | Oct 30–Nov 1 | ML: day split + leakage test, baselines, imbalance ablation, conformal + IForest, zero-day LOFO, Accuracy Illusion runs, latency; export JSON | `reports/*.json` generated; pytest green |
 | Nov 1–2 | TS scorer + TreeSHAP port + parity tests | vitest parity < 1e-6 on 1,000 flows |
 | Nov 2–5 | Neon project (AWS ap-southeast-1) + Managed Auth + Drizzle schema + replay loader; Next.js pages, stream tick, feedback, admin, upload | E2E: sign up → Watchfloor streams → feedback persists |
@@ -112,8 +112,8 @@ tanod/
 | Nov 10 PHT | **Submit** (~19 h before the hard cutoff) | Devpost shows submitted |
 
 ## The PPT (required: public link)
-Built with the `pptx` skill into `deck/TANOD-DataNova2026.pptx`, then uploaded to your Google Drive as Google Slides with "anyone with the link can view". **I'll confirm with you before making it public.** That link goes in the "PPT for the proposed solution" field. About 13 slides, each mapped to a judging criterion. Every number comes from `ml/reports/*.json`; nothing is typed in by hand:
-1. Title: TANOD, tagline, DN-CY-01, team
+Built with the `pptx` skill into `deck/NIGHTWATCH-DataNova2026.pptx`, then uploaded to your Google Drive as Google Slides with "anyone with the link can view". **I'll confirm with you before making it public.** That link goes in the "PPT for the proposed solution" field. About 13 slides, each mapped to a judging criterion. Every number comes from `ml/reports/*.json`; nothing is typed in by hand:
+1. Title: NIGHTWATCH, tagline, DN-CY-01, team
 2. The night shift: alert flood stats, PH ransomware context *(Relevance)*
 3. The Accuracy Illusion: mislabeled benchmarks and the 99.9% myth *(Innovation)*
 4. Detect · Doubt · Decide *(Solution)*
@@ -123,7 +123,7 @@ Built with the `pptx` skill into `deck/TANOD-DataNova2026.pptx`, then uploaded t
 8. Triage under capacity: attacks caught per analyst-hour vs baselines *(Impact)*
 9. Live demo: Watchfloor, Evidence card, Method screenshots
 10. Secure & responsible by design: STRIDE, RBAC, audit, human-in-loop
-11. Impact & feasibility: who uses it (SMEs, LGUs, hospitals), deploy path (CICFlowMeter → TANOD), cost, scale
+11. Impact & feasibility: who uses it (SMEs, LGUs, hospitals), deploy path (CICFlowMeter → NIGHTWATCH), cost, scale
 12. Validation & honest limits (Pitfall Scorecard)
 13. Roadmap · team contributions · links (demo, repo, video)
 
@@ -139,5 +139,5 @@ Built with the `pptx` skill into `deck/TANOD-DataNova2026.pptx`, then uploaded t
 ## Open items for you (not blocking the plan)
 - **Team rule:** Devpost says "Students only · Team required". Recruit a teammate, or email contact@datanovathon.com to confirm solo entry. The datanovathon.com FAQ says individuals are allowed.
 - **Unstop registration + problem selection by Oct 30.**
-- After approval, I'll offer to register a MyOS card for TANOD. Per your rules, I won't create one without a yes.
-- The name is TANOD unless you want another one. The folder name follows it.
+- After approval, I'll offer to register a MyOS card for NIGHTWATCH. Per your rules, I won't create one without a yes.
+- The name is NIGHTWATCH unless you want another one. The folder name follows it.
