@@ -13,20 +13,34 @@ def _toy(n=2000, seed=0):
     return pd.DataFrame({"ts": ts, "label": labels, "family": fam, "day": day})
 
 
-def test_chronological_has_no_time_leakage_per_group():
+def test_attacks_have_no_time_leakage_within_campaign():
     df = _toy()
     s = chronological_within_campaign(df)
-    groups = np.where(df.label == "BENIGN", "B|" + df.day, df.label)
-    for g in pd.unique(groups):
-        m = groups == g
+    for lab in ("DoS Hulk", "Botnet"):
+        m = df.label == lab
         tr, ca, te = (df.ts[m & (s == k)] for k in (TRAIN, CAL, TEST))
         assert tr.max() <= ca.min() <= ca.max() <= te.min()
 
 
+def test_benign_blocks_are_whole_and_test_spans_the_day():
+    df = _toy(20000)
+    s = chronological_within_campaign(df)
+    b = df.label == "BENIGN"
+    block = (df.ts - df.ts.groupby(df.day).transform("min")).dt.total_seconds() // (15 * 60)
+    # every 15-minute block of a day lands entirely in one split
+    per_block = pd.DataFrame({"day": df.day[b], "block": block[b], "split": s[b]}).groupby(["day", "block"])["split"].nunique()
+    assert (per_block == 1).all()
+    # held-out benign covers morning and evening, not just the last fifth of the day
+    hours = df.ts[b & (s == TEST)].dt.hour
+    assert hours.min() < 6 and hours.max() > 18
+
+
 def test_fractions_close_to_60_20_20():
-    df = _toy()
+    df = _toy(20000)
+    # Benign is split in whole 15-minute blocks, so a day whose block count is not a
+    # multiple of the 10-block cycle leaves a remainder in train: allow 3 points.
     shares = chronological_within_campaign(df).value_counts(normalize=True)
-    assert abs(shares[TRAIN] - 0.6) < 0.02 and abs(shares[TEST] - 0.2) < 0.02
+    assert abs(shares[TRAIN] - 0.6) < 0.03 and abs(shares[TEST] - 0.2) < 0.03
 
 
 def test_random_split_mixes_time():

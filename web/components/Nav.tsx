@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AccountButton } from "./AccountButton";
 import { Wordmark } from "./Logo";
 
 const links = [
@@ -23,9 +24,7 @@ export function Nav() {
             </li>
           ))}
         </ul>
-        <Link href="/auth/sign-in" className="btn">
-          Sign in
-        </Link>
+        <AccountButton />
       </nav>
     </header>
   );

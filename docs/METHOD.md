@@ -59,9 +59,11 @@ Dropped to prevent shortcut learning (Arp et al. pitfall P4, spurious correlatio
 | Split | What it measures | Why |
 | --- | --- | --- |
 | Random stratified | Nothing realistic | Shown only to expose inflation: neighbouring flows of the same campaign land in both train and test. |
-| **Chronological within campaign** (headline for Detect) | Detecting known attack families later in their own campaign | For every class, flows are ordered by time: first 60% train, next 20% calibration, last 20% test. Benign follows the same rule per day. |
+| **Chronological within campaign** (headline for Detect) | Detecting known attack families later in their own campaign | Attacks: for every class, flows are ordered by time; first 60% train, next 20% calibration, last 20% test. Benign: each day is cut into 15-minute blocks (anchored at the day's first flow) assigned train/calibration/test in a repeating 6:2:2 cycle, so held-out benign traffic spans the whole day. |
 | **Leave-one-family-out** (headline for Doubt) | Behaviour on a family never seen in training | Train and calibrate without one family, then score that family's flows. Success = flagged (Known-other or Unknown), failure = passed as Benign. |
 | Cross-year (stretch) | Drift to a new network | Train on 2017, test on corrected CSE-CIC-IDS2018. |
+
+Why benign is blocked rather than "last 20% of the day": with a last-20% benign rule, each attack's test slice (the end of its campaign) arrives before any test benign traffic, which makes arrival-order triage look artificially good and gives the replay an unrealistic timeline. Blocking keeps whole 15-minute windows together, so neighbouring benign flows rarely straddle train and test.
 
 ## Metrics
 
