@@ -4,7 +4,7 @@ import { and, asc, eq, gt, sql } from "drizzle-orm";
 import { db, schema } from "./db";
 import { score, type Model } from "./scoring";
 import modelJson from "./scoring/model/model.json";
-import { groupKey, rankScore } from "./triage";
+import { confidenceOf, familyOf, groupKey, rankScore, severityTier } from "./triage";
 
 const model = modelJson as unknown as Model;
 export const TICK_BATCH = 400;
@@ -99,11 +99,11 @@ export async function tick(shiftId: string, userId: string): Promise<TickResult 
     }
   }
 
-  const rows = [...groups.values()].map((g) => ({
-    shiftId,
-    ...g,
-    rankScore: rankScore(g.verdict, g.predicted, g.maxProbability, g.maxAnomaly, g.flowCount),
-  }));
+  const rows = [...groups.values()].map((g) => {
+    const tier = severityTier(g.verdict === "unknown" ? "Unknown" : familyOf(g.predicted));
+    const confidence = confidenceOf(g.verdict, g.maxProbability, g.maxAnomaly);
+    return { shiftId, ...g, tier, confidence, rankScore: rankScore(tier, confidence, g.flowCount) };
+  });
 
   const ops = [];
   if (rows.length) {
@@ -119,8 +119,9 @@ export async function tick(shiftId: string, userId: string): Promise<TickResult 
             maxProbability: sql`greatest(${schema.incidents.maxProbability}, excluded.max_probability)`,
             maxAnomaly: sql`greatest(${schema.incidents.maxAnomaly}, excluded.max_anomaly)`,
             truthFamily: sql`case when ${schema.incidents.truthFamily} = 'Benign' then excluded.truth_family else ${schema.incidents.truthFamily} end`,
-            // recompute rank with the merged volume: severity*confidence term is carried in excluded
-            rankScore: sql`excluded.rank_score / (1 + log(greatest(excluded.flow_count, 1))) * (1 + log(${schema.incidents.flowCount} + excluded.flow_count))`,
+            confidence: sql`greatest(${schema.incidents.confidence}, excluded.confidence)`,
+            // same formula as lib/triage.ts rankScore, on the merged confidence and volume (log = log10 in Postgres)
+            rankScore: sql`${schema.incidents.tier} * 10 + greatest(${schema.incidents.confidence}, excluded.confidence) * (1 + log(${schema.incidents.flowCount} + excluded.flow_count))`,
           },
         }),
     );

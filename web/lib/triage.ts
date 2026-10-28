@@ -2,6 +2,7 @@
 // capacity slider and the database agree on order.
 
 import type { Verdict } from "./scoring/conformal";
+import { familyInfo, type Severity } from "./security";
 
 export const FAMILY_OF: Record<string, string> = {
   BENIGN: "Benign",
@@ -21,19 +22,12 @@ export const FAMILY_OF: Record<string, string> = {
   Botnet: "Botnet",
 };
 
-// Impact if real: data theft and footholds outrank noisy but recoverable floods.
-export const SEVERITY: Record<string, number> = {
-  Infiltration: 1.0,
-  Heartbleed: 1.0,
-  Botnet: 0.95,
-  "Web Injection": 0.9,
-  Unknown: 0.85,
-  "Brute Force": 0.8,
-  DDoS: 0.75,
-  DoS: 0.7,
-  PortScan: 0.5,
-  Benign: 0.3,
-};
+/** Severity tier (Critical 4 .. Low 1) from the attack family; see lib/security.ts. */
+export function severityTier(family: string): number {
+  return TIER[familyInfo(family).severity];
+}
+
+const TIER: Record<Severity, number> = { Critical: 4, High: 3, Medium: 2, Low: 1 };
 
 /** Minutes an analyst needs to triage one incident; drives the capacity slider. */
 export const MINUTES_PER_INCIDENT = 6;
@@ -47,17 +41,15 @@ export function groupKey(verdict: Verdict, predicted: string, srcIp: string, dst
   return `${fam}|${srcIp}>${dstIp}`;
 }
 
-/** severity x confidence x volume. Unknowns use the anomaly score as confidence. */
-export function rankScore(
-  verdict: Verdict,
-  predicted: string,
-  maxProbability: number,
-  maxAnomaly: number,
-  flowCount: number,
-): number {
-  const fam = verdict === "unknown" ? "Unknown" : familyOf(predicted);
-  const confidence = verdict === "unknown" ? 0.55 + 0.45 * Math.min(1, maxAnomaly) : maxProbability;
-  return (SEVERITY[fam] ?? 0.6) * confidence * (1 + Math.log10(Math.max(1, flowCount)));
+/** Unknowns have no class probability, so the anomaly score stands in for confidence. */
+export function confidenceOf(verdict: Verdict, maxProbability: number, maxAnomaly: number): number {
+  return verdict === "unknown" ? 0.55 + 0.45 * Math.min(1, maxAnomaly) : maxProbability;
+}
+
+/** Severity tier first (Critical always above High), then confidence x volume inside a tier.
+ *  The second term stays below 10 for any realistic flow count, so tiers never interleave. */
+export function rankScore(tier: number, confidence: number, flowCount: number): number {
+  return tier * 10 + confidence * (1 + Math.log10(Math.max(1, flowCount)));
 }
 
 export function reviewableCount(capacityMinutes: number): number {

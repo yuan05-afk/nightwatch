@@ -64,6 +64,8 @@ export const incidents = pgTable(
     flowCount: integer("flow_count").notNull().default(0),
     maxProbability: real("max_probability").notNull(),
     maxAnomaly: real("max_anomaly").notNull(),
+    tier: integer("tier").notNull().default(2), // severity: Critical 4 .. Low 1
+    confidence: real("confidence").notNull().default(0),
     rankScore: real("rank_score").notNull(),
     exemplarFlowId: integer("exemplar_flow_id").notNull(),
     status: text("status").notNull().default("open"), // open | confirmed | false_positive | escalated

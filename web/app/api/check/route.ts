@@ -2,7 +2,7 @@ import { audit, rateLimit, requireUser, tooMany } from "@/lib/guard";
 import { parseFlowsCsv } from "@/lib/flows";
 import { score, type Model } from "@/lib/scoring";
 import modelJson from "@/lib/scoring/model/model.json";
-import { familyOf, groupKey, rankScore } from "@/lib/triage";
+import { confidenceOf, familyOf, groupKey, rankScore, severityTier } from "@/lib/triage";
 
 const model = modelJson as unknown as Model;
 const MAX_BYTES = 5 * 1024 * 1024;
@@ -57,7 +57,7 @@ export async function POST(req: Request) {
     }
   }
   const incidents = [...groups.values()]
-    .map((g) => ({ ...g, rank: rankScore(g.verdict, g.predicted, g.maxP, g.maxA, g.flows) }))
+    .map((g) => ({ ...g, rank: rankScore(severityTier(g.family), confidenceOf(g.verdict, g.maxP, g.maxA), g.flows) }))
     .sort((a, b) => b.rank - a.rank);
   const ms = performance.now() - t0;
 

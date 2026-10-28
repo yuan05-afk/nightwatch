@@ -23,12 +23,12 @@
           "confidence": 0
         },
         "20": {
-          "nightwatch": 12,
+          "nightwatch": 11,
           "fifo": 9,
           "confidence": 0
         },
         "40": {
-          "nightwatch": 12,
+          "nightwatch": 11,
           "fifo": 9,
           "confidence": 0
         }
@@ -125,7 +125,7 @@
       "alerts": 34823,
       "reached": {
         "5": {
-          "nightwatch": 2,
+          "nightwatch": 3,
           "fifo": 2,
           "confidence": 0
         },

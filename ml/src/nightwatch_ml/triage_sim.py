@@ -21,17 +21,19 @@ from .pipeline import REPORTS
 from .split import TEST, chronological_within_campaign
 
 FAMILY = data.FAMILY
-SEVERITY = {
-    "Infiltration": 1.0, "Heartbleed": 1.0, "Botnet": 0.95, "Web Injection": 0.9, "Unknown": 0.85,
-    "Brute Force": 0.8, "DDoS": 0.75, "DoS": 0.7, "PortScan": 0.5, "Benign": 0.3,
+# Severity tiers from web/lib/security.ts: Critical 4, High 3, Medium 2, Low 1.
+TIER = {
+    "Infiltration": 4, "Heartbleed": 4, "Botnet": 4, "Web Injection": 3, "Brute Force": 3,
+    "DDoS": 3, "DoS": 2, "Unknown": 2, "PortScan": 1,
 }
 BUDGETS = (5, 10, 20, 40)
 
 
 def rank_score(verdict: str, predicted: str, max_p: float, max_a: float, n: int) -> float:
+    """Same as web/lib/triage.ts: severity tier first, then confidence x volume."""
     fam = "Unknown" if verdict == "unknown" else FAMILY.get(predicted, "Unknown")
     conf = 0.55 + 0.45 * min(1.0, max_a) if verdict == "unknown" else max_p
-    return SEVERITY.get(fam, 0.6) * conf * (1 + math.log10(max(1, n)))
+    return TIER.get(fam, 2) * 10 + conf * (1 + math.log10(max(1, n)))
 
 
 def main() -> None:

@@ -100,13 +100,13 @@ export function CheckNetwork() {
                   const info = familyInfo(i.family);
                   return (
                     <li key={`${i.family}-${i.srcIp}-${i.dstIp}`} className="border-b border-[#1c2022] last:border-0">
-                      <button onClick={() => setOpen(open === n ? null : n)} aria-expanded={open === n} className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-3 text-left hover:bg-[#111415] sm:grid-cols-[90px_1fr_260px_110px]">
-                        <span className={`sev sev-${info.severity}`}>{info.severity}</span>
+                      <button onClick={() => setOpen(open === n ? null : n)} aria-expanded={open === n} className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-3 text-left hover:bg-[#111415] sm:grid-cols-[90px_1fr_320px_110px]">
+                        <span className={`sev sev-${info.severity} justify-self-start`}>{info.severity}</span>
                         <span>
                           <span className="block text-[0.9rem] text-ink">{i.verdict === "unknown" ? "Unrecognized activity" : i.predicted}</span>
                           <span className="block font-mono text-[0.72rem] text-ink-faint">{info.attack.id === "Unmapped" ? "needs review" : info.attack.id}</span>
                         </span>
-                        <span className="hidden font-mono text-[0.8rem] text-ink-soft sm:block">{i.srcIp} → {i.dstIp}:{i.dstPort}</span>
+                        <span className="hidden whitespace-nowrap font-mono text-[0.8rem] text-ink-soft sm:block">{i.srcIp} → {i.dstIp}:{i.dstPort}</span>
                         <span className="text-right font-mono text-[0.8rem] text-ink-soft">{i.flows.toLocaleString("en-US")} conn</span>
                       </button>
                       {open === n && (
