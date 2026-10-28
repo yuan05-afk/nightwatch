@@ -24,7 +24,6 @@ for f in ("NIGHTWATCH-DataNova2026.pptx", "NIGHTWATCH-DataNova2026.pdf"):
 shutil.copy2(ROOT / "README.md", B / "02-documentation" / "README.md")
 shutil.copy2(ROOT / "docs" / "METHOD.md", B / "02-documentation" / "METHOD.md")
 shutil.copy2(ROOT / "docs" / "RESEARCH.md", B / "02-documentation" / "RESEARCH.md")
-shutil.copy2(ROOT / "video" / "README.md", B / "02-documentation" / "DEMO-VIDEO.md")
 shutil.copytree(ROOT / "docs" / "screenshots", B / "02-documentation" / "screenshots")
 
 DESCRIBE = {
@@ -63,7 +62,7 @@ false alert, macro-F1 over attack classes {final['classifier']['macro_f1_attacks
 | Folder | Contents |
 | --- | --- |
 | 01-presentation | The deck (PPTX and PDF) |
-| 02-documentation | README, method, research sources, demo-video production notes, screenshots |
+| 02-documentation | README, method, research sources, screenshots |
 | 03-evaluation | Raw evaluation reports (JSON) with an index |
 | 04-source-code | Source snapshot from git: ML pipeline, web app, deck generator, video sources |
 

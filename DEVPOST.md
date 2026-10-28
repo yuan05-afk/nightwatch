@@ -75,7 +75,6 @@ NIGHTWATCH never blocks traffic on its own. It says what happened, how sure it i
 - **Data and accounts:** Neon Postgres, Drizzle ORM, Neon Auth (managed Better Auth)
 - **Hosting:** Vercel (`sin1`)
 - **Dataset:** corrected CIC-IDS2017; labels mapped to MITRE ATT&CK techniques
-- **Demo video:** Remotion, HyperFrames, ElevenLabs narration, Playwright screen capture
 
 ## Implementation and demonstration
 
@@ -142,10 +141,10 @@ Testing on the corrected CSE-CIC-IDS2018 for drift, learning from analyst decisi
 
 ---
 
-## Built with (25 of 25 tags)
+## Built with (24 of 25 tags)
 
 ```
-python, lightgbm, scikit-learn, imbalanced-learn, shap, pandas, numpy, pytest, typescript, next.js, react, tailwindcss, node.js, neon, postgresql, drizzle-orm, better-auth, vercel, vitest, playwright, cic-ids2017, mitre-attack, remotion, hyperframes, elevenlabs
+python, lightgbm, scikit-learn, imbalanced-learn, shap, pandas, numpy, pytest, typescript, next.js, react, tailwindcss, node.js, neon, postgresql, drizzle-orm, better-auth, vercel, vitest, playwright, cic-ids2017, mitre-attack, conformal-prediction, isolation-forest
 ```
 
 ## "Try it out" links
