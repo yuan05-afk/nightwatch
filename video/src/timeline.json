@@ -1,0 +1,1145 @@
+{
+ "fps": 30,
+ "duration": 142.37,
+ "voOffset": 1.0,
+ "gaps": [
+  [
+   22.7,
+   0.6
+  ],
+  [
+   26.7,
+   0.5
+  ],
+  [
+   34.3,
+   0.4
+  ],
+  [
+   46.2,
+   0.4
+  ],
+  [
+   56.1,
+   0.5
+  ],
+  [
+   64.3,
+   0.4
+  ],
+  [
+   75.4,
+   0.5
+  ],
+  [
+   78.7,
+   1.0
+  ],
+  [
+   86.6,
+   0.6
+  ],
+  [
+   94.2,
+   0.8
+  ],
+  [
+   108.6,
+   0.6
+  ],
+  [
+   124.4,
+   0.5
+  ]
+ ],
+ "scenes": {
+  "hook": [
+   0.0,
+   8.6
+  ],
+  "scale": [
+   8.6,
+   18.0
+  ],
+  "pain": [
+   18.0,
+   24.65
+  ],
+  "pivot": [
+   24.65,
+   29.02
+  ],
+  "monitor": [
+   29.02,
+   37.02
+  ],
+  "detect": [
+   37.02,
+   49.2
+  ],
+  "prioritize": [
+   49.2,
+   59.64
+  ],
+  "capacity": [
+   59.64,
+   68.82
+  ],
+  "investigate": [
+   68.82,
+   80.04
+  ],
+  "report": [
+   80.04,
+   93.02
+  ],
+  "check": [
+   93.02,
+   100.98
+  ],
+  "method": [
+   100.98,
+   116.09
+  ],
+  "built": [
+   116.09,
+   132.51
+  ],
+  "close": [
+   132.51,
+   142.37
+  ]
+ },
+ "clipStart": {
+  "nw_hook": -0.637,
+  "nw_monitor": 27.754,
+  "nw_detect": 36.988,
+  "nw_prioritize": 48.551,
+  "nw_capacity": 57.989,
+  "nw_investigate": 68.145,
+  "nw_report": 79.173,
+  "nw_check": 92.961,
+  "nw_method": 100.791
+ },
+ "ev": {
+  "nw_hook": {
+   "resume": 2.176,
+   "firstCritical": 2.58
+  },
+  "nw_monitor": {
+   "pick": 30.6,
+   "loaded": 30.983
+  },
+  "nw_detect": {
+   "hRec": 39.82,
+   "hRev": 40.838,
+   "hClr": 45.055,
+   "hDrop": 47.039
+  },
+  "nw_prioritize": {
+   "hT": 54.58,
+   "hTop": 56.796
+  },
+  "nw_capacity": {
+   "drag": 59.515,
+   "dragEnd": 60.6
+  },
+  "nw_investigate": {
+   "open": 69.42,
+   "toEvidence": 72.047,
+   "toResponse": 77.05
+  },
+  "nw_report": {
+   "confirm": 80.34,
+   "close": 81.574,
+   "toTop": 81.814,
+   "create": 83.326,
+   "loaded": 83.612,
+   "toTimeline": 84.479,
+   "toNpc": 86.778,
+   "toDeadline": 89.382
+  },
+  "nw_check": {
+   "upload": 95.4,
+   "results": 97.291
+  },
+  "nw_method": {
+   "toFlagged": 102.7,
+   "toFamilies": 107.707
+  }
+ },
+ "box": {
+  "nw_hook": {
+   "stats": {
+    "x": 120.0,
+    "y": 13.6,
+    "w": 1680.0,
+    "h": 158.9,
+    "t": -0.317
+   },
+   "critRow": {
+    "x": 124.0,
+    "y": 326.8,
+    "w": 1205.3,
+    "h": 90.5,
+    "t": 3.094
+   },
+   "table": {
+    "x": 124.0,
+    "y": 326.8,
+    "w": 1205.3,
+    "h": 1210.1,
+    "t": 12.104
+   }
+  },
+  "nw_monitor": {
+   "friday": {
+    "x": 186.7,
+    "y": 496.5,
+    "w": 515.5,
+    "h": 245.3,
+    "t": 28.093
+   },
+   "progress": {
+    "x": 203.3,
+    "y": 427.0,
+    "w": 1337.5,
+    "h": 29.3,
+    "t": 31.603
+   },
+   "speed": {
+    "x": 1518.2,
+    "y": 476.2,
+    "w": 279.1,
+    "h": 153.6,
+    "t": 31.612
+   }
+  },
+  "nw_detect": {
+   "rec": {
+    "x": 680.9,
+    "y": 129.6,
+    "w": 279.1,
+    "h": 153.6,
+    "t": 37.313
+   },
+   "rev": {
+    "x": 960.0,
+    "y": 129.6,
+    "w": 279.1,
+    "h": 153.6,
+    "t": 37.318
+   },
+   "clr": {
+    "x": 401.8,
+    "y": 129.6,
+    "w": 279.1,
+    "h": 153.6,
+    "t": 37.323
+   },
+   "missed": {
+    "x": 1239.1,
+    "y": 129.6,
+    "w": 279.1,
+    "h": 153.6,
+    "t": 37.327
+   },
+   "legend": {
+    "x": 1344.0,
+    "y": 833.6,
+    "w": 456.0,
+    "h": 530.8,
+    "t": 46.308
+   }
+  },
+  "nw_prioritize": {
+   "incidents": {
+    "x": 124.0,
+    "y": 160.1,
+    "w": 1205.3,
+    "h": 491.2,
+    "t": 48.875
+   },
+   "sev": {
+    "x": 196.6,
+    "y": 157.5,
+    "w": 138.8,
+    "h": 576.5,
+    "t": 50.476
+   },
+   "tcode": {
+    "x": 330.0,
+    "y": 199.6,
+    "w": 223.1,
+    "h": 39.8,
+    "t": 53.868
+   },
+   "top": {
+    "x": 124.0,
+    "y": 160.1,
+    "w": 1205.3,
+    "h": 90.5,
+    "t": 56.065
+   }
+  },
+  "nw_capacity": {
+   "capacity": {
+    "x": 1344.0,
+    "y": 16.5,
+    "w": 456.0,
+    "h": 526.4,
+    "t": 58.307
+   },
+   "fits": {
+    "x": 124.0,
+    "y": 160.1,
+    "w": 1205.3,
+    "h": 410.7,
+    "t": 61.022
+   },
+   "compare": {
+    "x": 1366.7,
+    "y": 211.4,
+    "w": 410.7,
+    "h": 308.9,
+    "t": 61.03
+   }
+  },
+  "nw_investigate": {
+   "what": {
+    "x": 1142.7,
+    "y": 132.5,
+    "w": 756.0,
+    "h": 326.6,
+    "t": 70.23
+   },
+   "evidence": {
+    "x": 1142.7,
+    "y": 82.9,
+    "w": 756.0,
+    "h": 1151.6,
+    "t": 73.331
+   },
+   "benign": {
+    "x": 1162.7,
+    "y": 287.4,
+    "w": 716.0,
+    "h": 66.2,
+    "t": 73.347
+   },
+   "response": {
+    "x": 1142.7,
+    "y": 82.1,
+    "w": 756.0,
+    "h": 202.1,
+    "t": 78.328
+   }
+  },
+  "nw_report": {
+   "deadline": {
+    "x": 404.0,
+    "y": 456.2,
+    "w": 1112.0,
+    "h": 177.8,
+    "t": 84.027
+   },
+   "timeline": {
+    "x": 357.3,
+    "y": -511.3,
+    "w": 1205.3,
+    "h": 2080.3,
+    "t": 85.603
+   },
+   "hosts": {
+    "x": 357.3,
+    "y": -511.3,
+    "w": 1205.3,
+    "h": 2080.3,
+    "t": 85.607
+   },
+   "npc": {
+    "x": 357.3,
+    "y": -1112.7,
+    "w": 1205.3,
+    "h": 2080.3,
+    "t": 87.998
+   },
+   "deadline2": {
+    "x": 404.0,
+    "y": 456.2,
+    "w": 1112.0,
+    "h": 177.8,
+    "t": 90.518
+   }
+  },
+  "nw_check": {
+   "stored": {
+    "x": 253.3,
+    "y": 238.6,
+    "w": 949.3,
+    "h": 110.2,
+    "t": 93.294
+   },
+   "tiles": {
+    "x": 253.3,
+    "y": 555.6,
+    "w": 1413.3,
+    "h": 109.9,
+    "t": 97.6
+   }
+  },
+  "nw_method": {
+   "stays": {
+    "x": 386.7,
+    "y": 306.6,
+    "w": 869.3,
+    "h": 86.7,
+    "t": 101.131
+   },
+   "flaggedRow": {
+    "x": 390.7,
+    "y": 346.2,
+    "w": 1138.7,
+    "h": 66.4,
+    "t": 104.283
+   },
+   "flagged": {
+    "x": 1030.2,
+    "y": 340.9,
+    "w": 271.2,
+    "h": 77.1,
+    "t": 104.288
+   },
+   "families": {
+    "x": 388.0,
+    "y": 296.2,
+    "w": 1144.0,
+    "h": 516.6,
+    "t": 109.49
+   },
+   "ddos": {
+    "x": 390.7,
+    "y": 465.5,
+    "w": 1138.7,
+    "h": 66.4,
+    "t": 109.495
+   },
+   "botnet": {
+    "x": 390.7,
+    "y": 354.0,
+    "w": 1138.7,
+    "h": 66.4,
+    "t": 109.5
+   }
+  }
+ },
+ "t": {
+  "philhealth": 9.3,
+  "records13m": 12.08,
+  "hours72": 15.3,
+  "orgTags": [
+   18.68,
+   19.6,
+   20.12
+  ],
+  "question": 22.22,
+  "pivotMark": 25.0,
+  "monFriday": 29.32,
+  "monProgress": 32.1,
+  "monSpeed": 34.56,
+  "detRec": 39.76,
+  "detRev": 40.7,
+  "detClr": 43.7,
+  "detDrop": 46.64,
+  "priIncidents": 49.5,
+  "priSev": 50.86,
+  "priTcode": 54.4,
+  "priTop": 56.66,
+  "capOnly": 59.94,
+  "capFits": 62.44,
+  "capCompare": 63.96,
+  "invWhat": 70.46,
+  "invEvidence": 73.331,
+  "invBenign": 74.4,
+  "invResponse": 78.328,
+  "repDraft": 84.027,
+  "repTimeline": 85.603,
+  "repHosts": 85.92,
+  "repNpc": 87.998,
+  "repDeadline": 90.518,
+  "chkResults": 97.491,
+  "chkStored": 98.6,
+  "metHidden": 101.28,
+  "metFlagged": 104.7,
+  "metFamilies": 109.49,
+  "metDdos": 110.08,
+  "metBotnet": 111.14,
+  "metSays": 113.32,
+  "built": [
+   116.44,
+   120.1,
+   121.88,
+   124.02,
+   126.96,
+   129.54
+  ],
+  "builtBanner": 128.9,
+  "closeMark": 132.96,
+  "line1": 134.58,
+  "line2": 136.08,
+  "cta": 137.667,
+  "click": 139.367
+ },
+ "captions": [
+  {
+   "start": 0.96,
+   "end": 5.28,
+   "text": "A computer inside this network starts checking in with an outside server, again and again."
+  },
+  {
+   "start": 5.42,
+   "end": 6.87,
+   "text": "It's a botnet taking orders."
+  },
+  {
+   "start": 6.9,
+   "end": 8.14,
+   "text": "And nobody is watching."
+  },
+  {
+   "start": 9.16,
+   "end": 11.8,
+   "text": "In 2023, ransomware hit PhilHealth."
+  },
+  {
+   "start": 12.04,
+   "end": 14.3,
+   "text": "About 13 million members' records leaked."
+  },
+  {
+   "start": 14.56,
+   "end": 17.52,
+   "text": "And the law gives you 72 hours to report a breach."
+  },
+  {
+   "start": 18.48,
+   "end": 22.15,
+   "text": "Most hospitals, schools and town halls have no security team."
+  },
+  {
+   "start": 22.18,
+   "end": 23.5,
+   "text": "So who's watching at night?"
+  },
+  {
+   "start": 25.1,
+   "end": 28.8,
+   "text": "Nightwatch is the night-shift security analyst they can't afford."
+  },
+  {
+   "start": 29.76,
+   "end": 31.88,
+   "text": "Choose a day of real recorded traffic."
+  },
+  {
+   "start": 32.06,
+   "end": 36.32,
+   "text": "Nightwatch scores every connection as it streams in, in a fraction of a millisecond."
+  },
+  {
+   "start": 37.28,
+   "end": 38.96,
+   "text": "Each one gets one of three labels."
+  },
+  {
+   "start": 39.72,
+   "end": 40.63,
+   "text": "A recognized attack."
+  },
+  {
+   "start": 40.66,
+   "end": 43.63,
+   "text": "Needs review, when it fits nothing the model knows."
+  },
+  {
+   "start": 43.66,
+   "end": 45.94,
+   "text": "Or cleared as normal."
+  },
+  {
+   "start": 46.76,
+   "end": 49.26,
+   "text": "The unknown is never silently dropped."
+  },
+  {
+   "start": 49.46,
+   "end": 50.79,
+   "text": "Related alerts become one incident,"
+  },
+  {
+   "start": 51.08,
+   "end": 55.9,
+   "text": "ranked Critical, High, Medium or Low, with its MITRE ATT&CK technique."
+  },
+  {
+   "start": 56.9,
+   "end": 58.98,
+   "text": "Botnet traffic goes straight to the top."
+  },
+  {
+   "start": 59.9,
+   "end": 61.26,
+   "text": "Only have 30 minutes?"
+  },
+  {
+   "start": 62.4,
+   "end": 63.89,
+   "text": "The capacity line shows what fits,"
+  },
+  {
+   "start": 63.92,
+   "end": 67.32,
+   "text": "and how many real attacks you reach, compared with oldest first."
+  },
+  {
+   "start": 69.08,
+   "end": 70.12,
+   "text": "Open an incident."
+  },
+  {
+   "start": 70.42,
+   "end": 72.02,
+   "text": "What happened, in plain words."
+  },
+  {
+   "start": 72.62,
+   "end": 76.2,
+   "text": "The evidence behind the alert, each with an innocent explanation."
+  },
+  {
+   "start": 77.66,
+   "end": 78.92,
+   "text": "And what to do first."
+  },
+  {
+   "start": 80.42,
+   "end": 84.15,
+   "text": "Confirm the threat, and Nightwatch drafts the incident report."
+  },
+  {
+   "start": 84.18,
+   "end": 87.04,
+   "text": "A timeline, the affected hosts,"
+  },
+  {
+   "start": 87.14,
+   "end": 89.6,
+   "text": "the four fields the Privacy Commission asks for,"
+  },
+  {
+   "start": 89.86,
+   "end": 91.66,
+   "text": "and the 72-hour deadline."
+  },
+  {
+   "start": 93.36,
+   "end": 94.38,
+   "text": "Have your own logs?"
+  },
+  {
+   "start": 95.36,
+   "end": 96.62,
+   "text": "Upload a flow export."
+  },
+  {
+   "start": 97.3,
+   "end": 101.18,
+   "text": "It's scored by the same model, in memory, and never stored."
+  },
+  {
+   "start": 101.24,
+   "end": 102.18,
+   "text": "Nothing is hidden."
+  },
+  {
+   "start": 103.14,
+   "end": 107.72,
+   "text": "On traffic from later in time, it flags 99.96% of attacks."
+  },
+  {
+   "start": 108.36,
+   "end": 110.87,
+   "text": "Hide a whole attack family, and it still catches floods,"
+  },
+  {
+   "start": 111.0,
+   "end": 113.0,
+   "text": "but misses traffic that imitates normal."
+  },
+  {
+   "start": 113.84,
+   "end": 115.94,
+   "text": "The method page says so."
+  },
+  {
+   "start": 116.4,
+   "end": 119.28,
+   "text": "We built Nightwatch for DataNova 2026."
+  },
+  {
+   "start": 120.06,
+   "end": 123.35,
+   "text": "A LightGBM model, trained on a corrected public intrusion dataset,"
+  },
+  {
+   "start": 123.38,
+   "end": 126.08,
+   "text": "with conformal prediction to measure doubt."
+  },
+  {
+   "start": 126.82,
+   "end": 129.15,
+   "text": "It runs in TypeScript inside a Next.js app,"
+  },
+  {
+   "start": 129.34,
+   "end": 131.4,
+   "text": "on Neon Postgres and Neon Auth."
+  },
+  {
+   "start": 133.14,
+   "end": 133.94,
+   "text": "Nightwatch."
+  },
+  {
+   "start": 134.54,
+   "end": 137.26,
+   "text": "Your team goes home. Nightwatch stays on."
+  }
+ ],
+ "sfx": [
+  {
+   "t": 0.35,
+   "type": "whoosh",
+   "gain": 0.35
+  },
+  {
+   "t": 2.58,
+   "type": "pop",
+   "gain": 0.55,
+   "pitch": 1.0
+  },
+  {
+   "t": 7.9,
+   "type": "thud",
+   "gain": 0.6
+  },
+  {
+   "t": 9.3,
+   "type": "pop",
+   "gain": 0.55,
+   "pitch": 1.0
+  },
+  {
+   "t": 12.08,
+   "type": "pop",
+   "gain": 0.55,
+   "pitch": 1.2
+  },
+  {
+   "t": 15.3,
+   "type": "pop",
+   "gain": 0.55,
+   "pitch": 1.4
+  },
+  {
+   "t": 18.68,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.0
+  },
+  {
+   "t": 19.6,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.12
+  },
+  {
+   "t": 20.12,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.26
+  },
+  {
+   "t": 22.22,
+   "type": "tick",
+   "gain": 0.6
+  },
+  {
+   "t": 24.3,
+   "type": "whoosh",
+   "gain": 0.6
+  },
+  {
+   "t": 24.65,
+   "type": "boom",
+   "gain": 0.7
+  },
+  {
+   "t": 24.67,
+   "type": "ping",
+   "gain": 0.5,
+   "pitch": 1.0
+  },
+  {
+   "t": 28.82,
+   "type": "whoosh",
+   "gain": 0.5
+  },
+  {
+   "t": 36.82,
+   "type": "whoosh",
+   "gain": 0.5
+  },
+  {
+   "t": 49.0,
+   "type": "whoosh",
+   "gain": 0.5
+  },
+  {
+   "t": 59.44,
+   "type": "whoosh",
+   "gain": 0.5
+  },
+  {
+   "t": 68.62,
+   "type": "whoosh",
+   "gain": 0.5
+  },
+  {
+   "t": 79.84,
+   "type": "whoosh",
+   "gain": 0.5
+  },
+  {
+   "t": 92.82,
+   "type": "whoosh",
+   "gain": 0.5
+  },
+  {
+   "t": 100.78,
+   "type": "whoosh",
+   "gain": 0.5
+  },
+  {
+   "t": 30.6,
+   "type": "click",
+   "gain": 0.6
+  },
+  {
+   "t": 34.56,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.3
+  },
+  {
+   "t": 39.76,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.0
+  },
+  {
+   "t": 40.7,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.2
+  },
+  {
+   "t": 43.7,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.4
+  },
+  {
+   "t": 46.64,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.6
+  },
+  {
+   "t": 50.86,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.0
+  },
+  {
+   "t": 54.4,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.2
+  },
+  {
+   "t": 56.66,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.4
+  },
+  {
+   "t": 59.515,
+   "type": "click",
+   "gain": 0.5
+  },
+  {
+   "t": 62.44,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.2
+  },
+  {
+   "t": 63.96,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.4
+  },
+  {
+   "t": 69.42,
+   "type": "click",
+   "gain": 0.6
+  },
+  {
+   "t": 69.72,
+   "type": "swish",
+   "gain": 0.45
+  },
+  {
+   "t": 73.331,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.1
+  },
+  {
+   "t": 78.328,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.3
+  },
+  {
+   "t": 80.34,
+   "type": "click",
+   "gain": 0.6
+  },
+  {
+   "t": 81.574,
+   "type": "click",
+   "gain": 0.45
+  },
+  {
+   "t": 83.326,
+   "type": "click",
+   "gain": 0.6
+  },
+  {
+   "t": 85.603,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.0
+  },
+  {
+   "t": 87.998,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.2
+  },
+  {
+   "t": 90.518,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.4
+  },
+  {
+   "t": 90.618,
+   "type": "ping",
+   "gain": 0.3,
+   "pitch": 1.5
+  },
+  {
+   "t": 95.4,
+   "type": "click",
+   "gain": 0.6
+  },
+  {
+   "t": 97.491,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.2
+  },
+  {
+   "t": 98.6,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.4
+  },
+  {
+   "t": 101.28,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.0
+  },
+  {
+   "t": 104.7,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.2
+  },
+  {
+   "t": 109.49,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.3
+  },
+  {
+   "t": 111.14,
+   "type": "pop",
+   "gain": 0.45,
+   "pitch": 1.5
+  },
+  {
+   "t": 115.84,
+   "type": "whoosh",
+   "gain": 0.6
+  },
+  {
+   "t": 116.59,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.0
+  },
+  {
+   "t": 120.25,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.1
+  },
+  {
+   "t": 122.03,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.25
+  },
+  {
+   "t": 124.17,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.4
+  },
+  {
+   "t": 127.11,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.55
+  },
+  {
+   "t": 129.69,
+   "type": "pop",
+   "gain": 0.5,
+   "pitch": 1.8
+  },
+  {
+   "t": 132.21,
+   "type": "whoosh",
+   "gain": 0.6
+  },
+  {
+   "t": 132.56,
+   "type": "boom",
+   "gain": 0.8
+  },
+  {
+   "t": 132.59,
+   "type": "ping",
+   "gain": 0.55,
+   "pitch": 1.0
+  },
+  {
+   "t": 134.58,
+   "type": "ping",
+   "gain": 0.3,
+   "pitch": 1.5
+  },
+  {
+   "t": 136.08,
+   "type": "ping",
+   "gain": 0.3,
+   "pitch": 2.0
+  },
+  {
+   "t": 139.367,
+   "type": "click",
+   "gain": 0.6
+  }
+ ],
+ "tickRuns": [
+  {
+   "from": 59.515,
+   "to": 60.6,
+   "count": 9,
+   "gain": 0.22,
+   "pitch": [
+    1.3,
+    0.8
+   ]
+  },
+  {
+   "from": 12.08,
+   "to": 12.98,
+   "count": 12,
+   "gain": 0.24,
+   "pitch": [
+    0.8,
+    1.5
+   ]
+  }
+ ],
+ "music": {
+  "sections": [
+   0,
+   8.6,
+   18.0,
+   24.65,
+   37.02,
+   132.51,
+   142.37
+  ],
+  "close": 132.51,
+  "groove": [
+   37.02,
+   132.20999999999998
+  ],
+  "clock": [
+   18.0,
+   24.45
+  ],
+  "risers": [
+   [
+    8.6,
+    2.0
+   ],
+   [
+    24.65,
+    2.0
+   ],
+   [
+    37.02,
+    1.5
+   ],
+   [
+    116.09,
+    1.5
+   ],
+   [
+    132.51,
+    2.2
+   ]
+  ]
+ }
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Nightwatch pivot</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-Regular.ttf"); font-weight: 400; }
+      @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-Medium.ttf"); font-weight: 500; }
+      @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-SemiBold.ttf"); font-weight: 600; }
+      @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-Bold.ttf"); font-weight: 700; }
+      :root { --ground: #07090a; --panel: #101415; --ink: #e8edec; --soft: #a9b3b1; --faint: #76817f; --mint: #7fe3c4; --gold: #c9b26a; --line: rgba(255,255,255,0.12); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "IBM Plex Sans", sans-serif; color: var(--ink); }
+      .layer { position: absolute; inset: 0; }
+      .mono { font-family: "IBM Plex Mono", monospace; }
+    </style>
+    <style>
+      #pv-glow { position: absolute; left: -10%; right: -10%; bottom: -62%; height: 100%; border-radius: 50%;
+        background: radial-gradient(closest-side, rgba(127,227,196,0.22), rgba(127,227,196,0.05) 60%, transparent 72%); }
+      #pv-arc { position: absolute; left: -15%; right: -15%; bottom: -88%; height: 120%; border-radius: 50%; border-top: 2px solid rgba(127,227,196,0.55); }
+      #pv-center { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; }
+      #pv-row { display: flex; align-items: center; gap: 36px; }
+      #pv-word { font-size: 150px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; display: flex; }
+      #pv-word .l { display: inline-block; }
+      #pv-sub { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-size: 30px; color: var(--soft); font-weight: 400; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="5.17" data-width="1920" data-height="1080">
+      <div id="pv-bg" class="clip layer" data-start="0" data-duration="5.17" data-track-index="0" data-layout-allow-overflow>
+        <div id="pv-glow"></div><div id="pv-arc"></div>
+      </div>
+      <div id="pv-stage" class="clip layer" data-start="0" data-duration="5.17" data-track-index="1">
+        <div id="pv-center"><div id="pv-row"><svg id="pv-mark" width="170" height="170" viewBox="0 0 24 24" fill="none">
+  <circle id="pv-mark-ring" cx="12" cy="12" r="10.25" stroke="#e8edec" stroke-width="1.1" opacity="0.6" stroke-dasharray="64.4" stroke-dashoffset="64.4" />
+  <path id="pv-mark-moon" d="M15.6 6.2a6.6 6.6 0 1 0 2.2 8.9 5.2 5.2 0 0 1-2.2-8.9Z" fill="#e8edec" />
+  <circle id="pv-mark-dot" cx="18.6" cy="5.4" r="1.1" fill="#c9b26a" />
+</svg><div id="pv-word"><span class="l" id="pv-l0">N</span><span class="l" id="pv-l1">i</span><span class="l" id="pv-l2">g</span><span class="l" id="pv-l3">h</span><span class="l" id="pv-l4">t</span><span class="l" id="pv-l5">w</span><span class="l" id="pv-l6">a</span><span class="l" id="pv-l7">t</span><span class="l" id="pv-l8">c</span><span class="l" id="pv-l9">h</span></div></div></div>
+        <div id="pv-sub">Network intrusion detection for teams without a security operations center</div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#pv-glow", { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "power2.inOut" }, 0);
+      tl.fromTo("#pv-arc", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.4, ease: "expo.out" }, 0.1);
+      tl.fromTo("#pv-mark", { scale: 1.9, x: 260 }, { scale: 1.9, x: 260, duration: 0.01 }, 0);
+      tl.fromTo("#pv-mark-ring", { attr: { "stroke-dashoffset": 64.4 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.6, ease: "power2.inOut" }, 0.45000000000000007);
+      tl.fromTo("#pv-mark-moon", { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.5, ease: "expo.out" }, 0.75);
+      tl.fromTo("#pv-mark-dot", { opacity: 0, scale: 0, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 1.07);
+      tl.to("#pv-mark", { scale: 1, x: 0, duration: 0.6, ease: "power3.inOut" }, 1.4);
+      tl.fromTo("#pv-l0", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.65);
+      tl.fromTo("#pv-l1", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.695);
+      tl.fromTo("#pv-l2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.74);
+      tl.fromTo("#pv-l3", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.785);
+      tl.fromTo("#pv-l4", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.83);
+      tl.fromTo("#pv-l5", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.875);
+      tl.fromTo("#pv-l6", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.92);
+      tl.fromTo("#pv-l7", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.965);
+      tl.fromTo("#pv-l8", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 2.01);
+      tl.fromTo("#pv-l9", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 2.055);
+      tl.fromTo("#pv-sub", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power4.out" }, 2.35);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

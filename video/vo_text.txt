@@ -1,0 +1,27 @@
+A computer inside this network starts checking in with an outside server, again and again. It's a botnet taking orders. And nobody is watching.
+
+In twenty twenty-three, ransomware hit PhilHealth. About thirteen million members' records leaked. And the law gives you seventy-two hours to report a breach.
+
+Most hospitals, schools and town halls have no security team. So who's watching at night?
+
+Nightwatch is the night-shift security analyst they can't afford.
+
+Choose a day of real recorded traffic. Nightwatch scores every connection as it streams in, in a fraction of a millisecond.
+
+Each one gets one of three labels. A recognized attack. Needs review, when it fits nothing the model knows. Or cleared as normal. The unknown is never silently dropped.
+
+Related alerts become one incident, ranked Critical, High, Medium or Low, with its MITRE attack technique. Botnet traffic goes straight to the top.
+
+Only have thirty minutes? The capacity line shows what fits, and how many real attacks you reach, compared with oldest first.
+
+Open an incident. What happened, in plain words. The evidence behind the alert, each with an innocent explanation. And what to do first.
+
+Confirm the threat, and Nightwatch drafts the incident report. A timeline, the affected hosts, the four fields the Privacy Commission asks for, and the seventy-two-hour deadline.
+
+Have your own logs? Upload a flow export. It's scored by the same model, in memory, and never stored.
+
+Nothing is hidden. On traffic from later in time, it flags ninety-nine point nine six percent of attacks. Hide a whole attack family, and it still catches floods, but misses traffic that imitates normal. The method page says so.
+
+We built Nightwatch for DataNova twenty twenty-six. A LightGBM model, trained on a corrected public intrusion dataset, with conformal prediction to measure doubt. It runs in TypeScript inside a Next JS app, on Neon Postgres and Neon Auth.
+
+Nightwatch. Your team goes home. Nightwatch stays on.

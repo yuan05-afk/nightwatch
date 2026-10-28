@@ -1,0 +1,33 @@
+{
+  "name": "nightwatch-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NIGHTWATCH DataNova 2026 demo video (Remotion + HyperFrames), same method as the GroundTruth demo",
+  "scripts": {
+    "capture": "node capture/record.mjs",
+    "align": "python audio/align_vo.py public/audio/vo.mp3 public/audio/words.json",
+    "timeline": "python audio/timeline.py",
+    "audio": "python audio/build_audio.py",
+    "hf": "node scripts/render_hf.mjs",
+    "stills": "node scripts/stills.mjs",
+    "preview": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts NightwatchDemo out/nightwatch-demo.mp4",
+    "srt": "python scripts/make_srt.py",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "@remotion/fonts": "^4.0.532",
+    "@remotion/media": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "playwright": "^1.63.0",
+    "typescript": "^5.9.3"
+  }
+}

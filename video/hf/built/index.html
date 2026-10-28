@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Nightwatch built</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-Regular.ttf"); font-weight: 400; }
+      @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-Medium.ttf"); font-weight: 500; }
+      @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-SemiBold.ttf"); font-weight: 600; }
+      @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-Bold.ttf"); font-weight: 700; }
+      :root { --ground: #07090a; --panel: #101415; --ink: #e8edec; --soft: #a9b3b1; --faint: #76817f; --mint: #7fe3c4; --gold: #c9b26a; --line: rgba(255,255,255,0.12); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "IBM Plex Sans", sans-serif; color: var(--ink); }
+      .layer { position: absolute; inset: 0; }
+      .mono { font-family: "IBM Plex Mono", monospace; }
+    </style>
+    <style>
+      #bt-head { position: absolute; left: 120px; top: 120px; }
+      #bt-label { font-size: 28px; color: var(--mint); font-weight: 500; }
+      #bt-title { font-size: 84px; font-weight: 500; letter-spacing: -0.02em; margin-top: 14px; }
+      #bt-title .b { color: var(--soft); }
+      .card { position: absolute; top: 380px; width: 392px; height: 460px; }
+      .nw { white-space: nowrap; }
+      .cardbox { position: absolute; inset: 0; border: 1.5px solid var(--line); border-radius: 18px; background: var(--panel); }
+      .cardin { position: absolute; inset: 0; padding: 30px 30px; }
+      .ck { font-size: 28px; color: var(--soft); display: flex; align-items: center; gap: 14px; }
+      .cn { font-size: 24px; color: var(--ground); background: var(--mint); border-radius: 8px; padding: 2px 10px; }
+      .ct { font-size: 36px; font-weight: 600; line-height: 1.12; margin-top: 22px; letter-spacing: -0.01em; }
+      .cb { font-size: 28px; line-height: 1.32; color: var(--soft); margin-top: 16px; }
+      .chips { position: absolute; left: 30px; right: 30px; bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+      .chip { font-size: 24px; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
+      .arrow { position: absolute; top: 610px; width: 38px; height: 2px; background: var(--faint); transform-origin: 0 50%; }
+      #bt-banner { position: absolute; left: 120px; right: 120px; top: 880px; height: 84px; border-radius: 16px; background: var(--mint); color: var(--ground);
+        display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="17.22" data-width="1920" data-height="1080">
+      <div id="bt-stage" class="clip layer" data-start="0" data-duration="17.22" data-track-index="0">
+        <div id="bt-head"><div id="bt-label">Built for DataNova 2026</div><div id="bt-title">One model. <span class="b">One web app.</span></div></div>
+        <div class="card" id="bt-c0" style="left:120px">
+        <div class="cardbox" id="bt-c0-box"></div>
+        <div class="cardin" id="bt-c0-in">
+          <div class="ck"><span class="cn mono">01</span>Model</div>
+          <div class="ct">LightGBM</div>
+          <div class="cb">Class-balanced over 15 traffic classes, chosen on calibration data.</div>
+          <div class="chips"><span class="chip" id="bt-c0-chip0">Python</span><span class="chip" id="bt-c0-chip1">scikit-learn</span></div>
+        </div>
+      </div>
+<div class="card" id="bt-c1" style="left:550px">
+        <div class="cardbox" id="bt-c1-box"></div>
+        <div class="cardin" id="bt-c1-in">
+          <div class="ck"><span class="cn mono">02</span>Data</div>
+          <div class="ct">Corrected <span class="nw">CIC-IDS2017</span></div>
+          <div class="cb">2,099,976 flows, split by time inside each attack.</div>
+          <div class="chips"><span class="chip" id="bt-c1-chip0">DistriNet, IEEE CNS 2022</span></div>
+        </div>
+      </div>
+<div class="card" id="bt-c2" style="left:980px">
+        <div class="cardbox" id="bt-c2-box"></div>
+        <div class="cardin" id="bt-c2-in">
+          <div class="ck"><span class="cn mono">03</span>Doubt</div>
+          <div class="ct">Mondrian conformal</div>
+          <div class="cb">95% coverage per class. Traffic it cannot place goes to Needs review.</div>
+          <div class="chips"><span class="chip" id="bt-c2-chip0">TreeSHAP</span><span class="chip" id="bt-c2-chip1">Isolation Forest</span></div>
+        </div>
+      </div>
+<div class="card" id="bt-c3" style="left:1410px">
+        <div class="cardbox" id="bt-c3-box"></div>
+        <div class="cardin" id="bt-c3-in">
+          <div class="ck"><span class="cn mono">04</span>App</div>
+          <div class="ct">Next.js 16 on Vercel</div>
+          <div class="cb">Scoring runs in TypeScript, matching Python to 0.000001.</div>
+          <div class="chips"><span class="chip" id="bt-c3-chip0">Neon Postgres</span><span class="chip" id="bt-c3-chip1">Neon Auth</span></div>
+        </div>
+      </div>
+        <div class="arrow" id="bt-a0" style="left:512px"></div><div class="arrow" id="bt-a1" style="left:942px"></div><div class="arrow" id="bt-a2" style="left:1372px"></div>
+        <div id="bt-banner">No Python server to fail. No automatic blocking. A person always decides.</div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#bt-label", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.25, ease: "power4.out" }, 0.6);
+      tl.fromTo("#bt-title", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "power4.out" }, 0.9);
+      tl.fromTo("#bt-c0-box", { opacity: 0, scaleY: 0.92, transformOrigin: "50% 0%" }, { opacity: 1, scaleY: 1, duration: 0.45, ease: "expo.out" }, 4.21);
+      tl.fromTo("#bt-c0-in", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 4.33);
+      tl.fromTo("#bt-c1-box", { opacity: 0, scaleY: 0.92, transformOrigin: "50% 0%" }, { opacity: 1, scaleY: 1, duration: 0.45, ease: "expo.out" }, 5.99);
+      tl.fromTo("#bt-c1-in", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 6.11);
+      tl.fromTo("#bt-a0", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.inOut" }, 5.89);
+      tl.fromTo("#bt-c2-box", { opacity: 0, scaleY: 0.92, transformOrigin: "50% 0%" }, { opacity: 1, scaleY: 1, duration: 0.45, ease: "expo.out" }, 8.13);
+      tl.fromTo("#bt-c2-in", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 8.25);
+      tl.fromTo("#bt-a1", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.inOut" }, 8.03);
+      tl.fromTo("#bt-c3-box", { opacity: 0, scaleY: 0.92, transformOrigin: "50% 0%" }, { opacity: 1, scaleY: 1, duration: 0.45, ease: "expo.out" }, 11.07);
+      tl.fromTo("#bt-c3-in", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 11.19);
+      tl.fromTo("#bt-a2", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.inOut" }, 10.97);
+      tl.fromTo("#bt-c3-chip0, #bt-c3-chip1", { backgroundColor: "rgba(127,227,196,0)", color: "#e8edec" }, { backgroundColor: "rgba(127,227,196,0.18)", color: "#7fe3c4", duration: 0.35, ease: "power2.out" }, 13.65);
+      tl.fromTo("#bt-banner", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 13.01);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

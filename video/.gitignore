@@ -1,0 +1,14 @@
+node_modules/
+# large or regenerable media
+public/clips/
+public/hf/
+public/audio/*.wav
+public/audio/take_*.mp3
+public/audio/words_*.json
+capture/_frames/
+hf/*/assets/
+hf/*/.hyperframes/
+hf/*/renders/
+out/*.mp4
+out/stills/
+out/render.log
