@@ -116,8 +116,8 @@
   "nw_detect": 36.988,
   "nw_prioritize": 48.551,
   "nw_capacity": 57.989,
-  "nw_investigate": 68.145,
-  "nw_report": 79.173,
+  "nw_investigate": 68.143,
+  "nw_report": 79.185,
   "nw_check": 92.961,
   "nw_method": 100.791
  },
@@ -146,18 +146,18 @@
   },
   "nw_investigate": {
    "open": 69.42,
-   "toEvidence": 72.047,
-   "toResponse": 77.05
+   "toEvidence": 72.054,
+   "toResponse": 77.052
   },
   "nw_report": {
    "confirm": 80.34,
-   "close": 81.574,
+   "close": 81.571,
    "toTop": 81.814,
-   "create": 83.326,
-   "loaded": 83.612,
-   "toTimeline": 84.479,
-   "toNpc": 86.778,
-   "toDeadline": 89.382
+   "create": 83.333,
+   "loaded": 83.64,
+   "toTimeline": 84.492,
+   "toNpc": 86.791,
+   "toDeadline": 89.388
   },
   "nw_check": {
    "upload": 95.4,
@@ -311,28 +311,28 @@
     "y": 132.5,
     "w": 756.0,
     "h": 326.6,
-    "t": 70.23
+    "t": 70.115
    },
    "evidence": {
     "x": 1142.7,
     "y": 82.9,
     "w": 756.0,
     "h": 1151.6,
-    "t": 73.331
+    "t": 73.319
    },
    "benign": {
     "x": 1162.7,
     "y": 287.4,
     "w": 716.0,
     "h": 66.2,
-    "t": 73.347
+    "t": 73.331
    },
    "response": {
     "x": 1142.7,
     "y": 82.1,
     "w": 756.0,
     "h": 202.1,
-    "t": 78.328
+    "t": 78.316
    }
   },
   "nw_report": {
@@ -341,35 +341,35 @@
     "y": 456.2,
     "w": 1112.0,
     "h": 177.8,
-    "t": 84.027
+    "t": 84.048
    },
    "timeline": {
     "x": 357.3,
     "y": -511.3,
     "w": 1205.3,
     "h": 2080.3,
-    "t": 85.603
+    "t": 85.609
    },
    "hosts": {
     "x": 357.3,
     "y": -511.3,
     "w": 1205.3,
     "h": 2080.3,
-    "t": 85.607
+    "t": 85.614
    },
    "npc": {
     "x": 357.3,
     "y": -1112.7,
     "w": 1205.3,
     "h": 2080.3,
-    "t": 87.998
+    "t": 88.026
    },
    "deadline2": {
     "x": 404.0,
     "y": 456.2,
     "w": 1112.0,
     "h": 177.8,
-    "t": 90.518
+    "t": 90.519
    }
   },
   "nw_check": {
@@ -459,14 +459,14 @@
   "capFits": 62.44,
   "capCompare": 63.96,
   "invWhat": 70.46,
-  "invEvidence": 73.331,
+  "invEvidence": 73.319,
   "invBenign": 74.4,
-  "invResponse": 78.328,
-  "repDraft": 84.027,
-  "repTimeline": 85.603,
+  "invResponse": 78.316,
+  "repDraft": 84.048,
+  "repTimeline": 85.609,
   "repHosts": 85.92,
-  "repNpc": 87.998,
-  "repDeadline": 90.518,
+  "repNpc": 88.026,
+  "repDeadline": 90.519,
   "chkResults": 97.491,
   "chkStored": 98.6,
   "metHidden": 101.28,
@@ -912,13 +912,13 @@
    "gain": 0.45
   },
   {
-   "t": 73.331,
+   "t": 73.319,
    "type": "pop",
    "gain": 0.45,
    "pitch": 1.1
   },
   {
-   "t": 78.328,
+   "t": 78.316,
    "type": "pop",
    "gain": 0.45,
    "pitch": 1.3
@@ -929,35 +929,35 @@
    "gain": 0.6
   },
   {
-   "t": 81.574,
+   "t": 81.571,
    "type": "click",
    "gain": 0.45
   },
   {
-   "t": 83.326,
+   "t": 83.333,
    "type": "click",
    "gain": 0.6
   },
   {
-   "t": 85.603,
+   "t": 85.609,
    "type": "pop",
    "gain": 0.45,
    "pitch": 1.0
   },
   {
-   "t": 87.998,
+   "t": 88.026,
    "type": "pop",
    "gain": 0.45,
    "pitch": 1.2
   },
   {
-   "t": 90.518,
+   "t": 90.519,
    "type": "pop",
    "gain": 0.5,
    "pitch": 1.4
   },
   {
-   "t": 90.618,
+   "t": 90.619,
    "type": "ping",
    "gain": 0.3,
    "pitch": 1.5

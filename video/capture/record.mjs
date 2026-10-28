@@ -63,7 +63,7 @@ const CURSOR_INIT = `
 const STYLE_INIT = `
 (() => {
   const s = document.createElement('style')
-  s.textContent = 'html{scrollbar-width:none} ::-webkit-scrollbar{display:none} header.sticky{position:relative !important;top:16px !important}'
+  s.textContent = 'html{scrollbar-width:none} ::-webkit-scrollbar{display:none} header.sticky.top-4{position:relative !important;top:16px !important}'
   const add = () => document.head && document.head.appendChild(s)
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', add)
   else add()
@@ -211,8 +211,16 @@ async function record(name, run, { start = '/console', prepare = null, warmup = 
   await rm(dir, { recursive: true, force: true })
   await mkdir(dir, { recursive: true })
 
-  if (prepare) await prepare(page)
-  else await page.goto(`${BASE}${start}`, { waitUntil: 'domcontentloaded' })
+  const fail = async (stage, e) => {
+    await page.screenshot({ path: path.join(TMP, `${name}-fail.png`) }).catch(() => {})
+    throw new Error(`${stage} at ${page.url()}: ${e.message.split('\n')[0]}`)
+  }
+  try {
+    if (prepare) await prepare(page)
+    else await page.goto(`${BASE}${start}`, { waitUntil: 'domcontentloaded' })
+  } catch (e) {
+    await fail('prepare', e)
+  }
   await page.waitForTimeout(warmup)
   mouse = { x: 1180, y: 700 }
   await page.mouse.move(mouse.x, mouse.y)
@@ -230,7 +238,11 @@ async function record(name, run, { start = '/console', prepare = null, warmup = 
   EVENTS = []
   await sleep(300)
   T0 = Date.now()
-  await run(page)
+  try {
+    await run(page)
+  } catch (e) {
+    await fail(`run t=${((Date.now() - T0) / 1000).toFixed(1)}`, e)
+  }
   const endTs = Date.now() / 1000
   await sleep(250)
   await cdp.send('Page.stopScreencast')
@@ -446,6 +458,7 @@ const clips = {
         })
         await page.waitForTimeout(300)
         await clickAtT(page, page.getByRole('button', { name: 'Close' }), 1.9, 500, 'close')
+        await page.locator('aside.overflow-y-auto').waitFor({ state: 'detached', timeout: 10000 })
         await page.waitForTimeout(150)
         mark('toTop')
         await scrollPageTo(page, 0, 650)
